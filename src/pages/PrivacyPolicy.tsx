@@ -1,27 +1,18 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
-export const Route = createFileRoute("/privacy-policy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy — Metro Cars Vijayawada" },
-      { name: "description", content: "Read the privacy policy for Metro Cars Vijayawada. Learn how we collect, use and protect your personal information." },
-      { property: "og:title", content: "Privacy Policy — Metro Cars Vijayawada" },
-      { property: "og:description", content: "How Metro Cars Vijayawada handles your data, cookies, and customer information." },
-    ],
-    links: [{ rel: "canonical", href: "/privacy-policy" }],
-  }),
-  component: PrivacyPolicy,
-});
+export default function PrivacyPolicy() {
+  useEffect(() => {
+    document.title = "Privacy Policy — Metro Cars Vijayawada";
+  }, []);
 
-function PrivacyPolicy() {
   return (
     <main className="min-h-screen bg-white">
       <MetroHeader />
 
-      {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-black text-white overflow-hidden">
         <div className="absolute -top-32 -right-32 size-[500px] rounded-full bg-[var(--brand-orange)]/20 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 size-[500px] rounded-full bg-[var(--brand-orange)]/10 blur-3xl" />
@@ -39,7 +30,6 @@ function PrivacyPolicy() {
         </div>
       </section>
 
-      {/* Content */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
           <article className="prose prose-lg max-w-none text-black/80 space-y-8">
