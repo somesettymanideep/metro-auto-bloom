@@ -1,0 +1,4 @@
+const tsrStartManifest = () => ({ routes: { __root__: { filePath: "C:/development projects/metro-auto-bloom/src/routes/__root.tsx", children: ["/", "/privacy-policy"], preloads: ["/metro-auto-bloom/assets/index-Bb1-RbWD.js"], scripts: [{ attrs: { type: "module", async: true, src: "/metro-auto-bloom/assets/index-Bb1-RbWD.js" } }] }, "/": { filePath: "C:/development projects/metro-auto-bloom/src/routes/index.tsx", children: void 0, preloads: ["/metro-auto-bloom/assets/index-ZdU0KXzK.js", "/metro-auto-bloom/assets/MetroSections-BTCY4vVJ.js"] }, "/privacy-policy": { filePath: "C:/development projects/metro-auto-bloom/src/routes/privacy-policy.tsx", children: void 0, preloads: ["/metro-auto-bloom/assets/privacy-policy-DGbK8PYl.js", "/metro-auto-bloom/assets/MetroSections-BTCY4vVJ.js"] } } });
+export {
+  tsrStartManifest
+};

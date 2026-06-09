@@ -2,7 +2,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, useRouter, Link, Outlet, HeadContent, Scripts, createFileRoute, lazyRouteComponent, createRouter } from "@tanstack/react-router";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useEffect } from "react";
-const appCss = "/assets/styles-CBhlPKEd.css";
+const appCss = "/metro-auto-bloom/assets/styles-CBhlPKEd.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -109,7 +109,7 @@ function RootComponent() {
   const { queryClient } = Route$2.useRouteContext();
   return /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$1 = () => import("./privacy-policy-XJC2jlUg.js");
+const $$splitComponentImporter$1 = () => import("./privacy-policy-ZU46nQF9.js");
 const Route$1 = createFileRoute("/privacy-policy")({
   head: () => ({
     meta: [{
@@ -131,7 +131,7 @@ const Route$1 = createFileRoute("/privacy-policy")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-U5Slb6Bu.js");
+const $$splitComponentImporter = () => import("./index-DW6BZxhn.js");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{

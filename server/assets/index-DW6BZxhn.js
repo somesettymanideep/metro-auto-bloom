@@ -1,12 +1,12 @@
 import { jsxs, jsx } from "react/jsx-runtime";
-import { M as MetroHeader, T as TrustBar, A as AboutSection, I as InventorySection, W as WhySection, b as TestimonialsSection, P as ProcessSection, E as EnquirySection, F as FAQSection, C as CTASection, H as HappyCustomersSection, a as MetroFooter, S as StickyContact } from "./MetroSections-Can0mPAP.js";
+import { M as MetroHeader, T as TrustBar, A as AboutSection, I as InventorySection, W as WhySection, b as TestimonialsSection, P as ProcessSection, E as EnquirySection, F as FAQSection, C as CTASection, H as HappyCustomersSection, a as MetroFooter, S as StickyContact } from "./MetroSections-toK0Y1Xq.js";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import "@tanstack/react-router";
-const heroSedan = "/assets/hero-sedan-CrtIhbi0.jpg";
-const heroSuv = "/assets/hero-suv-DyNCl_6v.jpg";
-const heroHandover = "/assets/hero-handover-CrIxU4L-.jpg";
+const heroSedan = "/metro-auto-bloom/assets/hero-sedan-CrtIhbi0.jpg";
+const heroSuv = "/metro-auto-bloom/assets/hero-suv-DyNCl_6v.jpg";
+const heroHandover = "/metro-auto-bloom/assets/hero-handover-CrIxU4L-.jpg";
 const slides = [
   {
     img: heroSedan,

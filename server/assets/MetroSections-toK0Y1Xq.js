@@ -141,8 +141,8 @@ function MetroHeader() {
     }
   );
 }
-const dealership = "/assets/dealership-emrG0ld5.jpg";
-const carSedan = "/assets/car-sedan-D-FxHZQm.jpg";
+const dealership = "/metro-auto-bloom/assets/dealership-emrG0ld5.jpg";
+const carSedan = "/metro-auto-bloom/assets/car-sedan-D-FxHZQm.jpg";
 const url$b = "/__l5e/assets-v1/0ebb8f9e-6c3c-4039-a8df-b44af4742fc4/sold-baleno.jpg";
 const soldBaleno = {
   url: url$b
@@ -171,12 +171,12 @@ const url$5 = "/__l5e/assets-v1/e9e3f40a-15f1-4fcc-8458-f1b22dd5c0ff/sold-grandi
 const soldGrandi10 = {
   url: url$5
 };
-const carSuv = "/assets/car-suv-B2j0XY7c.jpg";
-const carHatch = "/assets/car-hatch-DnprBIvR.jpg";
-const carLuxury = "/assets/car-luxury-D89mYQCm.jpg";
-const carInnova = "/assets/car-innova-DK6sgLcx.jpg";
-const carKia = "/assets/car-kia-CNT7M9rN.jpg";
-const ctaPremium = "/assets/cta-premium-Cwi-k9Qb.jpg";
+const carSuv = "/metro-auto-bloom/assets/car-suv-B2j0XY7c.jpg";
+const carHatch = "/metro-auto-bloom/assets/car-hatch-DnprBIvR.jpg";
+const carLuxury = "/metro-auto-bloom/assets/car-luxury-D89mYQCm.jpg";
+const carInnova = "/metro-auto-bloom/assets/car-innova-DK6sgLcx.jpg";
+const carKia = "/metro-auto-bloom/assets/car-kia-CNT7M9rN.jpg";
+const ctaPremium = "/metro-auto-bloom/assets/cta-premium-Cwi-k9Qb.jpg";
 const url$4 = "/__l5e/assets-v1/86bf2ac3-6fa2-4e56-a8c4-6f5fd2ef4d2c/faq-support.jpg";
 const faqSupportAsset = {
   url: url$4
