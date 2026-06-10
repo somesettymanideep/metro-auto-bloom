@@ -37,7 +37,7 @@ export function MetroHeader() {
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
         <a href="#home" className="flex items-center gap-2 shrink-0">
           <img
-            src={logoAsset.url}
+            src={logoUrl}
             alt="Metro Cars Vijayawada"
             className="h-16 lg:h-20 w-auto drop-shadow-[0_0_20px_rgba(255,90,0,0.4)]"
           />
