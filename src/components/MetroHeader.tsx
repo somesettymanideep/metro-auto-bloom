@@ -4,23 +4,52 @@ import { Phone, Menu, X } from "lucide-react";
 import logoUrl from "@/assets/metro-cars-logo.png";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About Us" },
-  { href: "#inventory", label: "Inventory" },
-  { href: "#why", label: "Why Choose Us" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", label: "Home", id: "home" },
+  { href: "#about", label: "About Us", id: "about" },
+  { href: "#inventory", label: "Inventory", id: "inventory" },
+  { href: "#why", label: "Why Choose Us", id: "why" },
+  { href: "#testimonials", label: "Testimonials", id: "testimonials" },
+  { href: "#contact", label: "Contact", id: "contact" },
 ];
 
 export function MetroHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setActiveSection(sectionId);
+    }
+    setOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleIntersection = () => {
+      const sections = links.map(l => document.getElementById(l.id)).filter(Boolean);
+      
+      sections.forEach((section) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleIntersection, { passive: true });
+    return () => window.removeEventListener("scroll", handleIntersection);
   }, []);
 
   return (
@@ -35,7 +64,11 @@ export function MetroHeader() {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
-        <a href="#home" className="flex items-center gap-2 shrink-0">
+        <a
+          href="#home"
+          onClick={(e) => handleNavClick(e, "home")}
+          className="flex items-center gap-2 shrink-0 cursor-pointer"
+        >
           <img
             src={logoUrl}
             alt="Metro Cars Vijayawada"
@@ -48,10 +81,19 @@ export function MetroHeader() {
             <a
               key={l.href}
               href={l.href}
-              className="px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white/90 hover:text-[var(--brand-orange)] transition-colors relative group"
+              onClick={(e) => handleNavClick(e, l.id)}
+              className={`px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-colors relative group ${
+                activeSection === l.id
+                  ? "text-[var(--brand-orange)]"
+                  : "text-white/90 hover:text-[var(--brand-orange)]"
+              }`}
             >
               {l.label}
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[var(--brand-orange)] transition-all group-hover:w-2/3" />
+              <span
+                className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--brand-orange)] transition-all ${
+                  activeSection === l.id ? "w-2/3" : "w-0 group-hover:w-2/3"
+                }`}
+              />
             </a>
           ))}
         </nav>
@@ -97,8 +139,12 @@ export function MetroHeader() {
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="px-3 py-3 text-white/90 hover:text-[var(--brand-orange)] font-semibold uppercase text-sm tracking-wide border-b border-white/5"
+                onClick={(e) => handleNavClick(e, l.id)}
+                className={`px-3 py-3 font-semibold uppercase text-sm tracking-wide border-b border-white/5 transition-colors ${
+                  activeSection === l.id
+                    ? "text-[var(--brand-orange)]"
+                    : "text-white/90 hover:text-[var(--brand-orange)]"
+                }`}
               >
                 {l.label}
               </a>
