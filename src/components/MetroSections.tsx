@@ -798,7 +798,7 @@ export function FAQSection() {
 
             <div className="relative rounded-2xl overflow-hidden mb-6 shadow-xl group">
               <img
-                src={faqSupportAsset.url}
+                src={faqSupportUrl}
                 alt="Metro Cars Vijayawada support team helping a customer"
                 loading="lazy"
                 width={1024}
