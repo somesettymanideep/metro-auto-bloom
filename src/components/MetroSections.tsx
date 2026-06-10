@@ -37,22 +37,22 @@ import {
 } from "lucide-react";
 import dealership from "@/assets/dealership.jpg";
 import carSedan from "@/assets/car-sedan.jpg";
-import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg.asset.json";
-import soldNexon from "@/assets/happy-customers/sold-nexon.jpg.asset.json";
-import soldCreta from "@/assets/happy-customers/sold-creta.jpg.asset.json";
-import soldInnova from "@/assets/happy-customers/sold-innova.jpg.asset.json";
-import soldFortuner from "@/assets/happy-customers/sold-fortuner.jpg.asset.json";
-import soldAlto from "@/assets/happy-customers/sold-alto.jpg.asset.json";
-import soldGrandi10 from "@/assets/happy-customers/sold-grandi10.jpg.asset.json";
+import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg";
+import soldNexon from "@/assets/happy-customers/sold-nexon.jpg";
+import soldCreta from "@/assets/happy-customers/sold-creta.jpg";
+import soldInnova from "@/assets/happy-customers/sold-innova.jpg";
+import soldFortuner from "@/assets/happy-customers/sold-fortuner.jpg";
+import soldAlto from "@/assets/happy-customers/sold-alto.jpg";
+import soldGrandi10 from "@/assets/happy-customers/sold-grandi10.jpg";
 import carSuv from "@/assets/car-suv.jpg";
 import carHatch from "@/assets/car-hatch.jpg";
 import carLuxury from "@/assets/car-luxury.jpg";
 import carInnova from "@/assets/car-innova.jpg";
 import carKia from "@/assets/car-kia.jpg";
-import logoAsset from "@/assets/metro-cars-logo.png.asset.json";
+import logoUrl from "@/assets/metro-cars-logo.png";
 import ctaPremium from "@/assets/cta-premium.jpg";
-import faqSupportAsset from "@/assets/faq-support.jpg.asset.json";
-import footerBg from "@/assets/footer-bg.jpg.asset.json";
+import faqSupportUrl from "@/assets/faq-support.jpg";
+import footerBgUrl from "@/assets/footer-bg.jpg";
 
 /* ---------- Counter ---------- */
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
