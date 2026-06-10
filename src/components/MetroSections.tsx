@@ -1077,7 +1077,7 @@ export function MetroFooter() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <img src={logoAsset.url} alt="Metro Cars" className="h-24 lg:h-28 w-auto mb-4" />
+            <img src={logoUrl} alt="Metro Cars" className="h-24 lg:h-28 w-auto mb-4" />
             <p className="text-white/60 text-sm leading-relaxed">
               Vijayawada's trusted destination for certified pre-owned cars, transparent pricing and exceptional service.
             </p>
