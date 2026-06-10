@@ -178,7 +178,7 @@ export default function CarDetails() {
                 </div>
                 <div className="mt-2 flex items-center gap-2 text-sm text-black/70">
                   <MapPin className="size-4 text-[var(--brand-orange)]" />
-                  <span>Available at Metro Cars, Hyderabad</span>
+                  <span>Available at Metro Cars, Vijayawada</span>
                 </div>
 
                 <div className="mt-6 grid gap-3">
