@@ -1068,7 +1068,7 @@ export function MetroFooter() {
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
-          backgroundImage: `url(${footerBg.url})`,
+          backgroundImage: `url(${footerBgUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
