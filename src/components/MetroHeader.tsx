@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Menu, X } from "lucide-react";
-import logoAsset from "@/assets/metro-cars-logo.png.asset.json";
+import logoUrl from "@/assets/metro-cars-logo.png";
 
 const links = [
   { href: "#home", label: "Home" },
