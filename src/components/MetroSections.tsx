@@ -206,14 +206,7 @@ export function AboutSection() {
 }
 
 /* ---------- Inventory ---------- */
-const cars = [
-  { img: carSedan, name: "Honda City VX", year: 2021, fuel: "Petrol", trans: "Automatic", km: "32,500 km", price: "₹9.85 L", cat: "Sedan" },
-  { img: carSuv, name: "Hyundai Creta SX", year: 2022, fuel: "Diesel", trans: "Manual", km: "28,400 km", price: "₹13.20 L", cat: "SUV" },
-  { img: carHatch, name: "Maruti Swift ZXI", year: 2020, fuel: "Petrol", trans: "Manual", km: "41,200 km", price: "₹6.45 L", cat: "Hatchback" },
-  { img: carLuxury, name: "BMW 3 Series", year: 2019, fuel: "Petrol", trans: "Automatic", km: "38,900 km", price: "₹29.50 L", cat: "Luxury" },
-  { img: carInnova, name: "Toyota Innova Crysta", year: 2021, fuel: "Diesel", trans: "Manual", km: "52,100 km", price: "₹17.90 L", cat: "SUV" },
-  { img: carKia, name: "Kia Seltos HTX", year: 2022, fuel: "Petrol", trans: "Automatic", km: "21,800 km", price: "₹14.75 L", cat: "SUV" },
-];
+import { cars } from "@/data/cars";
 const tabs = ["All", "Sedan", "SUV", "Hatchback", "Luxury", "Budget"];
 
 export function InventorySection() {
@@ -289,9 +282,9 @@ export function InventorySection() {
                   <Spec icon={Settings2} text={c.trans} />
                   <Spec icon={Gauge} text={c.km} />
                 </div>
-                <button className="mt-6 w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-black text-white font-bold uppercase text-sm tracking-wide hover:bg-[var(--brand-orange)] transition-colors">
+                <Link to={`/car/${c.slug}`} className="mt-6 w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-black text-white font-bold uppercase text-sm tracking-wide hover:bg-[var(--brand-orange)] transition-colors">
                   View Details <ArrowRight className="size-4" />
-                </button>
+                </Link>
               </div>
             </motion.article>
           ))}
