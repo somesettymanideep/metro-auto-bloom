@@ -957,13 +957,13 @@ export function CTASection() {
 /* ---------- Happy Customers Slider ---------- */
 export function HappyCustomersSection() {
   const slides = [
-    { src: soldBaleno.url, label: "Baleno Automatic" },
-    { src: soldNexon.url, label: "Tata Nexon" },
-    { src: soldCreta.url, label: "Hyundai Creta" },
-    { src: soldInnova.url, label: "Toyota Innova" },
-    { src: soldFortuner.url, label: "Toyota Fortuner" },
-    { src: soldAlto.url, label: "Alto 800" },
-    { src: soldGrandi10.url, label: "Grand i10" },
+    { src: soldBaleno, label: "Baleno Automatic" },
+    { src: soldNexon, label: "Tata Nexon" },
+    { src: soldCreta, label: "Hyundai Creta" },
+    { src: soldInnova, label: "Toyota Innova" },
+    { src: soldFortuner, label: "Toyota Fortuner" },
+    { src: soldAlto, label: "Alto 800" },
+    { src: soldGrandi10, label: "Grand i10" },
   ];
   const [index, setIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(3);
