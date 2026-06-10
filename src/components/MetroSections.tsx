@@ -363,14 +363,14 @@ export function WhySection() {
 }
 
 /* ---------- Testimonials ---------- */
-import testimonialVideo1 from "@/assets/testimonial-1.mp4.asset.json";
-import testimonialVideo2 from "@/assets/testimonial-2.mp4.asset.json";
-import testimonialVideo3 from "@/assets/testimonial-3.mp4.asset.json";
+import testimonialVideo1 from "@/assets/testimonial-1.mp4";
+import testimonialVideo2 from "@/assets/testimonial-2.mp4";
+import testimonialVideo3 from "@/assets/testimonial-3.mp4";
 
 const testimonials = [
-  { id: "v1", src: testimonialVideo1.url },
-  { id: "v2", src: testimonialVideo2.url },
-  { id: "v3", src: testimonialVideo3.url },
+  { id: "v1", src: testimonialVideo1 },
+  { id: "v2", src: testimonialVideo2 },
+  { id: "v3", src: testimonialVideo3 },
 ];
 
 export function TestimonialsSection() {
