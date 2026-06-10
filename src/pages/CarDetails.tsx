@@ -222,7 +222,7 @@ export default function CarDetails() {
         </div>
       </main>
 
-      <Footer />
+      <MetroFooter />
       <StickyContact />
     </div>
   );
