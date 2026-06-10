@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { getCarBySlug } from "@/data/cars";
 import { MetroHeader } from "@/components/MetroHeader";
-import { Footer, StickyContact } from "@/components/MetroSections";
+import { MetroFooter, StickyContact } from "@/components/MetroSections";
 
 export default function CarDetails() {
   const { slug = "" } = useParams();
