@@ -37,22 +37,22 @@ import {
 } from "lucide-react";
 import dealership from "@/assets/dealership.jpg";
 import carSedan from "@/assets/car-sedan.jpg";
-import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg.asset.json";
-import soldNexon from "@/assets/happy-customers/sold-nexon.jpg.asset.json";
-import soldCreta from "@/assets/happy-customers/sold-creta.jpg.asset.json";
-import soldInnova from "@/assets/happy-customers/sold-innova.jpg.asset.json";
-import soldFortuner from "@/assets/happy-customers/sold-fortuner.jpg.asset.json";
-import soldAlto from "@/assets/happy-customers/sold-alto.jpg.asset.json";
-import soldGrandi10 from "@/assets/happy-customers/sold-grandi10.jpg.asset.json";
+import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg";
+import soldNexon from "@/assets/happy-customers/sold-nexon.jpg";
+import soldCreta from "@/assets/happy-customers/sold-creta.jpg";
+import soldInnova from "@/assets/happy-customers/sold-innova.jpg";
+import soldFortuner from "@/assets/happy-customers/sold-fortuner.jpg";
+import soldAlto from "@/assets/happy-customers/sold-alto.jpg";
+import soldGrandi10 from "@/assets/happy-customers/sold-grandi10.jpg";
 import carSuv from "@/assets/car-suv.jpg";
 import carHatch from "@/assets/car-hatch.jpg";
 import carLuxury from "@/assets/car-luxury.jpg";
 import carInnova from "@/assets/car-innova.jpg";
 import carKia from "@/assets/car-kia.jpg";
-import logoAsset from "@/assets/metro-cars-logo.png.asset.json";
+import logoUrl from "@/assets/metro-cars-logo.png";
 import ctaPremium from "@/assets/cta-premium.jpg";
-import faqSupportAsset from "@/assets/faq-support.jpg.asset.json";
-import footerBg from "@/assets/footer-bg.jpg.asset.json";
+import faqSupportUrl from "@/assets/faq-support.jpg";
+import footerBgUrl from "@/assets/footer-bg.jpg";
 
 /* ---------- Counter ---------- */
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
@@ -363,14 +363,14 @@ export function WhySection() {
 }
 
 /* ---------- Testimonials ---------- */
-import testimonialVideo1 from "@/assets/testimonial-1.mp4.asset.json";
-import testimonialVideo2 from "@/assets/testimonial-2.mp4.asset.json";
-import testimonialVideo3 from "@/assets/testimonial-3.mp4.asset.json";
+import testimonialVideo1 from "@/assets/testimonial-1.mp4";
+import testimonialVideo2 from "@/assets/testimonial-2.mp4";
+import testimonialVideo3 from "@/assets/testimonial-3.mp4";
 
 const testimonials = [
-  { id: "v1", src: testimonialVideo1.url },
-  { id: "v2", src: testimonialVideo2.url },
-  { id: "v3", src: testimonialVideo3.url },
+  { id: "v1", src: testimonialVideo1 },
+  { id: "v2", src: testimonialVideo2 },
+  { id: "v3", src: testimonialVideo3 },
 ];
 
 export function TestimonialsSection() {
@@ -798,7 +798,7 @@ export function FAQSection() {
 
             <div className="relative rounded-2xl overflow-hidden mb-6 shadow-xl group">
               <img
-                src={faqSupportAsset.url}
+                src={faqSupportUrl}
                 alt="Metro Cars Vijayawada support team helping a customer"
                 loading="lazy"
                 width={1024}
@@ -957,13 +957,13 @@ export function CTASection() {
 /* ---------- Happy Customers Slider ---------- */
 export function HappyCustomersSection() {
   const slides = [
-    { src: soldBaleno.url, label: "Baleno Automatic" },
-    { src: soldNexon.url, label: "Tata Nexon" },
-    { src: soldCreta.url, label: "Hyundai Creta" },
-    { src: soldInnova.url, label: "Toyota Innova" },
-    { src: soldFortuner.url, label: "Toyota Fortuner" },
-    { src: soldAlto.url, label: "Alto 800" },
-    { src: soldGrandi10.url, label: "Grand i10" },
+    { src: soldBaleno, label: "Baleno Automatic" },
+    { src: soldNexon, label: "Tata Nexon" },
+    { src: soldCreta, label: "Hyundai Creta" },
+    { src: soldInnova, label: "Toyota Innova" },
+    { src: soldFortuner, label: "Toyota Fortuner" },
+    { src: soldAlto, label: "Alto 800" },
+    { src: soldGrandi10, label: "Grand i10" },
   ];
   const [index, setIndex] = useState(0);
   const [slidesPerView, setSlidesPerView] = useState(3);
@@ -1068,7 +1068,7 @@ export function MetroFooter() {
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
-          backgroundImage: `url(${footerBg.url})`,
+          backgroundImage: `url(${footerBgUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -1077,7 +1077,7 @@ export function MetroFooter() {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
-            <img src={logoAsset.url} alt="Metro Cars" className="h-24 lg:h-28 w-auto mb-4" />
+            <img src={logoUrl} alt="Metro Cars" className="h-24 lg:h-28 w-auto mb-4" />
             <p className="text-white/60 text-sm leading-relaxed">
               Vijayawada's trusted destination for certified pre-owned cars, transparent pricing and exceptional service.
             </p>
