@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useMotionValue, useSpring, useTransform, useScroll, useInView, animate } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useScroll, useInView, animate, useReducedMotion } from "framer-motion";
 import {
   Star,
   Calendar,
@@ -20,6 +20,7 @@ import {
   FileCheck2,
   Handshake,
   ChevronRight,
+  Accessibility,
 } from "lucide-react";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
@@ -98,14 +99,19 @@ export default function Product() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Reduced motion: honor system pref + expose a user toggle
+  const systemReduced = useReducedMotion();
+  const [userReduced, setUserReduced] = useState(false);
+  const reduced = systemReduced || userReduced;
+
   // Parallax on the car image
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start end", "end start"],
   });
-  const carY = useTransform(scrollYProgress, [0, 1], [40, -80]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const carY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [40, -80]);
+  const glowY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -60]);
 
   // 3D tilt on hover
   const rotateX = useMotionValue(0);
@@ -114,6 +120,7 @@ export default function Product() {
   const springRY = useSpring(rotateY, { stiffness: 120, damping: 15 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reduced) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
@@ -124,6 +131,16 @@ export default function Product() {
     rotateX.set(0);
     rotateY.set(0);
   };
+
+  // Active hotspot (kept open on focus/click for keyboard users)
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveHotspot(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white overflow-hidden">
@@ -143,18 +160,31 @@ export default function Product() {
         />
       </div>
 
-      {/* Floating particles */}
-      <div aria-hidden className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <motion.span
-            key={i}
-            className="absolute size-1 rounded-full bg-[#F97316]/40"
-            style={{ left: `${(i * 7) % 100}%`, top: `${(i * 13) % 100}%` }}
-            animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
-            transition={{ duration: 6 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-          />
-        ))}
-      </div>
+      {/* Floating particles (skipped when reduced motion) */}
+      {!reduced && (
+        <div aria-hidden className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <motion.span
+              key={i}
+              className="absolute size-1 rounded-full bg-[#F97316]/40"
+              style={{ left: `${(i * 7) % 100}%`, top: `${(i * 13) % 100}%` }}
+              animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
+              transition={{ duration: 6 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Reduce motion toggle */}
+      <button
+        type="button"
+        onClick={() => setUserReduced((v) => !v)}
+        aria-pressed={userReduced}
+        className="fixed bottom-24 right-4 z-40 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/70 backdrop-blur border border-white/15 text-xs font-semibold text-white/90 hover:border-[#F97316]/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]/70 transition-colors"
+      >
+        <Accessibility className="size-4 text-[#F97316]" />
+        {reduced ? "Motion reduced" : "Reduce motion"}
+      </button>
 
       <main className="relative z-10 pt-32 lg:pt-40 pb-24 lg:pb-32">
         <div className="container mx-auto px-4 lg:px-8">
@@ -223,27 +253,66 @@ export default function Product() {
                 />
 
                 {/* Hotspots */}
-                {hotspots.map((h, i) => (
-                  <div
-                    key={h.label}
-                    className="absolute group"
-                    style={{ left: `${h.x}%`, top: `${h.y}%`, transform: "translate(-50%,-50%)" }}
-                  >
-                    <motion.span
-                      className="absolute inset-0 -m-3 rounded-full bg-[#F97316]/40"
-                      animate={{ scale: [1, 2.2, 1], opacity: [0.6, 0, 0.6] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.35 }}
-                    />
-                    <button
-                      aria-label={h.label}
-                      className="relative size-4 rounded-full bg-[#F97316] border-2 border-white shadow-[0_0_20px_rgba(249,115,22,0.8)] hover:scale-125 transition-transform"
-                    />
-                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -translate-y-2 bottom-full mb-2 min-w-[160px] px-3 py-2 rounded-xl bg-black/90 backdrop-blur border border-white/10 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 transition-all">
-                      <div className="text-xs font-bold text-[#F97316] uppercase tracking-wider">{h.label}</div>
-                      <div className="text-[11px] text-white/70 mt-0.5">{h.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                <ul
+                  role="list"
+                  aria-label="Vehicle feature hotspots. Tab to explore each highlight."
+                  className="contents"
+                >
+                  {hotspots.map((h, i) => {
+                    const isOpen = activeHotspot === i;
+                    const tipId = `hotspot-tip-${i}`;
+                    return (
+                      <li
+                        key={h.label}
+                        className="absolute group"
+                        style={{ left: `${h.x}%`, top: `${h.y}%`, transform: "translate(-50%,-50%)" }}
+                      >
+                        {!reduced && (
+                          <motion.span
+                            aria-hidden
+                            className="absolute inset-0 -m-3 rounded-full bg-[#F97316]/40"
+                            animate={{ scale: [1, 2.2, 1], opacity: [0.6, 0, 0.6] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.35 }}
+                          />
+                        )}
+                        <button
+                          type="button"
+                          aria-label={`${h.label}: ${h.desc}`}
+                          aria-describedby={tipId}
+                          aria-expanded={isOpen}
+                          onClick={() => setActiveHotspot(isOpen ? null : i)}
+                          onFocus={() => setActiveHotspot(i)}
+                          onBlur={(e) => {
+                            // keep open if focus moved into the tooltip
+                            if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
+                              setActiveHotspot((cur) => (cur === i ? null : cur));
+                            }
+                          }}
+                          onMouseEnter={() => setActiveHotspot(i)}
+                          onMouseLeave={() => setActiveHotspot((cur) => (cur === i ? null : cur))}
+                          className="relative size-4 rounded-full bg-[#F97316] border-2 border-white shadow-[0_0_20px_rgba(249,115,22,0.8)] hover:scale-125 transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
+                        />
+                        <div
+                          id={tipId}
+                          role="tooltip"
+                          className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 min-w-[160px] px-3 py-2 rounded-xl bg-black/90 backdrop-blur border border-white/10 transition-all duration-200 ${
+                            isOpen
+                              ? "opacity-100 -translate-y-1 pointer-events-auto"
+                              : "opacity-0 -translate-y-2 pointer-events-none"
+                          }`}
+                        >
+                          <div className="text-xs font-bold text-[#F97316] uppercase tracking-wider">
+                            {h.label}
+                          </div>
+                          <div className="text-[11px] text-white/70 mt-0.5">{h.desc}</div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p className="sr-only">
+                  Press Tab to move between hotspots, Enter or Space to toggle each tooltip, and Escape to close.
+                </p>
               </motion.div>
 
               {/* Corner badge */}
