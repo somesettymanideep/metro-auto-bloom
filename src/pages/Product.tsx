@@ -253,27 +253,66 @@ export default function Product() {
                 />
 
                 {/* Hotspots */}
-                {hotspots.map((h, i) => (
-                  <div
-                    key={h.label}
-                    className="absolute group"
-                    style={{ left: `${h.x}%`, top: `${h.y}%`, transform: "translate(-50%,-50%)" }}
-                  >
-                    <motion.span
-                      className="absolute inset-0 -m-3 rounded-full bg-[#F97316]/40"
-                      animate={{ scale: [1, 2.2, 1], opacity: [0.6, 0, 0.6] }}
-                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.35 }}
-                    />
-                    <button
-                      aria-label={h.label}
-                      className="relative size-4 rounded-full bg-[#F97316] border-2 border-white shadow-[0_0_20px_rgba(249,115,22,0.8)] hover:scale-125 transition-transform"
-                    />
-                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -translate-y-2 bottom-full mb-2 min-w-[160px] px-3 py-2 rounded-xl bg-black/90 backdrop-blur border border-white/10 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1 transition-all">
-                      <div className="text-xs font-bold text-[#F97316] uppercase tracking-wider">{h.label}</div>
-                      <div className="text-[11px] text-white/70 mt-0.5">{h.desc}</div>
-                    </div>
-                  </div>
-                ))}
+                <ul
+                  role="list"
+                  aria-label="Vehicle feature hotspots. Tab to explore each highlight."
+                  className="contents"
+                >
+                  {hotspots.map((h, i) => {
+                    const isOpen = activeHotspot === i;
+                    const tipId = `hotspot-tip-${i}`;
+                    return (
+                      <li
+                        key={h.label}
+                        className="absolute group"
+                        style={{ left: `${h.x}%`, top: `${h.y}%`, transform: "translate(-50%,-50%)" }}
+                      >
+                        {!reduced && (
+                          <motion.span
+                            aria-hidden
+                            className="absolute inset-0 -m-3 rounded-full bg-[#F97316]/40"
+                            animate={{ scale: [1, 2.2, 1], opacity: [0.6, 0, 0.6] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.35 }}
+                          />
+                        )}
+                        <button
+                          type="button"
+                          aria-label={`${h.label}: ${h.desc}`}
+                          aria-describedby={tipId}
+                          aria-expanded={isOpen}
+                          onClick={() => setActiveHotspot(isOpen ? null : i)}
+                          onFocus={() => setActiveHotspot(i)}
+                          onBlur={(e) => {
+                            // keep open if focus moved into the tooltip
+                            if (!e.currentTarget.parentElement?.contains(e.relatedTarget as Node)) {
+                              setActiveHotspot((cur) => (cur === i ? null : cur));
+                            }
+                          }}
+                          onMouseEnter={() => setActiveHotspot(i)}
+                          onMouseLeave={() => setActiveHotspot((cur) => (cur === i ? null : cur))}
+                          className="relative size-4 rounded-full bg-[#F97316] border-2 border-white shadow-[0_0_20px_rgba(249,115,22,0.8)] hover:scale-125 transition-transform focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0A0A]"
+                        />
+                        <div
+                          id={tipId}
+                          role="tooltip"
+                          className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 min-w-[160px] px-3 py-2 rounded-xl bg-black/90 backdrop-blur border border-white/10 transition-all duration-200 ${
+                            isOpen
+                              ? "opacity-100 -translate-y-1 pointer-events-auto"
+                              : "opacity-0 -translate-y-2 pointer-events-none"
+                          }`}
+                        >
+                          <div className="text-xs font-bold text-[#F97316] uppercase tracking-wider">
+                            {h.label}
+                          </div>
+                          <div className="text-[11px] text-white/70 mt-0.5">{h.desc}</div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <p className="sr-only">
+                  Press Tab to move between hotspots, Enter or Space to toggle each tooltip, and Escape to close.
+                </p>
               </motion.div>
 
               {/* Corner badge */}
