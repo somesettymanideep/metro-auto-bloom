@@ -4,6 +4,7 @@ import { MetroHero } from "@/components/MetroHero";
 import {
   TrustBar,
   AboutSection,
+  FounderSection,
   ServicesSection,
   InventorySection,
   WhySection,
@@ -16,6 +17,7 @@ import {
   MetroFooter,
   StickyContact,
 } from "@/components/MetroSections";
+
 
 
 export default function Home() {
