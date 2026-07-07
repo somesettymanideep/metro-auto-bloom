@@ -36,6 +36,8 @@ import {
   VolumeX,
 } from "lucide-react";
 import dealership from "@/assets/dealership.jpg";
+import founderImg from "@/assets/founder.jpg";
+
 import carSedan from "@/assets/car-sedan.jpg";
 import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg";
 import soldNexon from "@/assets/happy-customers/sold-nexon.jpg";
