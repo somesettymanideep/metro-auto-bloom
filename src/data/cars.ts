@@ -14,6 +14,8 @@ import wagonr1 from "@/assets/car-wagonr-1.jpg";
 import wagonr2 from "@/assets/car-wagonr-2.jpg";
 import wagonr3 from "@/assets/car-wagonr-3.jpg";
 import wagonr4 from "@/assets/car-wagonr-4.jpg";
+import wagonr5 from "@/assets/car-wagonr-5.jpg";
+import venue7 from "@/assets/car-venue-7.jpg";
 
 
 
@@ -63,7 +65,7 @@ export const cars: Car[] = [
 
     description:
       "Well-maintained Hyundai Venue S(O) petrol variant. Spacious compact SUV with modern features, comfortable interiors and excellent fuel efficiency. Perfect for city driving and highway cruising.",
-    gallery: [venue1, venue2, venue3, venue4, venue5, venue6],
+    gallery: [venue1, venue2, venue3, venue4, venue5, venue6, venue7],
   },
   {
     slug: "maruti-wagonr-2024",
@@ -81,7 +83,7 @@ export const cars: Car[] = [
     bodyType: "Hatchback",
     description:
       "Almost new 2024 Maruti Suzuki WagonR petrol automatic. Spacious cabin, excellent mileage and easy city driving with AMT transmission. Well-maintained with low kilometres.",
-    gallery: [wagonr1, wagonr2, wagonr3, wagonr4],
+    gallery: [wagonr1, wagonr2, wagonr3, wagonr4, wagonr5],
   },
 ];
 
