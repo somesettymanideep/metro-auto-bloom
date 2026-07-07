@@ -1059,7 +1059,14 @@ export function FAQSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             {faqs.map((f, i) => (
-              <div key={i} className="rounded-2xl bg-white border border-black/5 overflow-hidden shadow-sm">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
+                className="rounded-2xl bg-white border border-black/5 overflow-hidden shadow-sm"
+              >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
@@ -1075,7 +1082,7 @@ export function FAQSection() {
                 >
                   <div className="px-6 pb-5 text-black/70 leading-relaxed">{f.a}</div>
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
