@@ -31,12 +31,12 @@ export default function Home() {
       <MetroHero />
       <TrustBar />
       <AboutSection />
-      <FounderSection />
       <ServicesSection />
 
       <InventorySection />
 
       <WhySection />
+      <FounderSection />
       <TestimonialsSection />
       <ProcessSection />
       <EnquirySection />
