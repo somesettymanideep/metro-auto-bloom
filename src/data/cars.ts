@@ -83,7 +83,7 @@ export const cars: Car[] = [
     bodyType: "Hatchback",
     description:
       "Almost new 2024 Maruti Suzuki WagonR petrol automatic. Spacious cabin, excellent mileage and easy city driving with AMT transmission. Well-maintained with low kilometres.",
-    gallery: [wagonr1, wagonr2, wagonr3, wagonr4],
+    gallery: [wagonr1, wagonr2, wagonr3, wagonr4, wagonr5],
   },
 ];
 
