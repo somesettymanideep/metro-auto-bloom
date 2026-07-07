@@ -501,9 +501,6 @@ export function InventorySection() {
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white" style={{ background: "var(--gradient-orange)" }}>
                   Certified
                 </div>
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-white text-xs font-semibold">
-                  {c.cat}
-                </div>
               </div>
               <div className="p-6">
                 <div className="flex items-start justify-between gap-3">
