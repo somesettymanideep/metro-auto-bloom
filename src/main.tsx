@@ -7,6 +7,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CarDetails from "./pages/CarDetails";
 import NotFound from "./pages/NotFound";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
