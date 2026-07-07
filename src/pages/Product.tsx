@@ -160,18 +160,31 @@ export default function Product() {
         />
       </div>
 
-      {/* Floating particles */}
-      <div aria-hidden className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <motion.span
-            key={i}
-            className="absolute size-1 rounded-full bg-[#F97316]/40"
-            style={{ left: `${(i * 7) % 100}%`, top: `${(i * 13) % 100}%` }}
-            animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
-            transition={{ duration: 6 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-          />
-        ))}
-      </div>
+      {/* Floating particles (skipped when reduced motion) */}
+      {!reduced && (
+        <div aria-hidden className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <motion.span
+              key={i}
+              className="absolute size-1 rounded-full bg-[#F97316]/40"
+              style={{ left: `${(i * 7) % 100}%`, top: `${(i * 13) % 100}%` }}
+              animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
+              transition={{ duration: 6 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Reduce motion toggle */}
+      <button
+        type="button"
+        onClick={() => setUserReduced((v) => !v)}
+        aria-pressed={userReduced}
+        className="fixed bottom-24 right-4 z-40 inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/70 backdrop-blur border border-white/15 text-xs font-semibold text-white/90 hover:border-[#F97316]/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F97316]/70 transition-colors"
+      >
+        <Accessibility className="size-4 text-[#F97316]" />
+        {reduced ? "Motion reduced" : "Reduce motion"}
+      </button>
 
       <main className="relative z-10 pt-32 lg:pt-40 pb-24 lg:pb-32">
         <div className="container mx-auto px-4 lg:px-8">
