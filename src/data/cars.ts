@@ -41,6 +41,25 @@ export type Car = {
 
 export const cars: Car[] = [
   {
+    slug: "hyundai-venue-s-o",
+    img: venue1,
+    name: "Hyundai Venue S(O)",
+    year: 2022,
+    fuel: "Petrol",
+    trans: "Manual",
+    km: "1,07,000 km",
+    price: "₹7.80 L",
+    cat: "SUV",
+    brand: "Hyundai",
+    model: "Venue",
+    variant: "S(O) Petrol MT",
+    bodyType: "Compact SUV",
+    description:
+      "Well-maintained Hyundai Venue S(O) petrol variant. Spacious compact SUV with modern features, comfortable interiors and excellent fuel efficiency. Perfect for city driving and highway cruising.",
+    gallery: [venue1, venue2, venue3, venue4, venue5, venue6],
+  },
+
+  {
     slug: "honda-city-vx",
     img: carSedan,
     name: "Honda City VX",
