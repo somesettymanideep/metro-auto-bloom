@@ -1238,6 +1238,10 @@ export function MetroFooter() {
             <Link to="/privacy-policy" className="text-white/60 hover:text-[var(--brand-orange)] transition-colors font-semibold">
               Privacy Policy
             </Link>
+            <span className="text-white/20">|</span>
+            <Link to="/refund-policy" className="text-white/60 hover:text-[var(--brand-orange)] transition-colors font-semibold">
+              Refund Policy
+            </Link>
           </div>
           <div className="flex gap-2">
             {[
