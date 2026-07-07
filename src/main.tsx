@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CarDetails from "./pages/CarDetails";
+import Product from "./pages/Product";
 import NotFound from "./pages/NotFound";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import "./styles.css";
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/car/:slug" element={<CarDetails />} />
+        <Route path="/product" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
