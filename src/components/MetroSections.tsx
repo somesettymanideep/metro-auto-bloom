@@ -422,7 +422,9 @@ export function ServicesSection() {
                     </ul>
 
                     <a
-                      href={s.cta.href}
+                      href={`https://wa.me/919059987777?text=${encodeURIComponent(`Hi Metro Cars, I'm interested in "${s.title}" service. ${s.cta.label}.`)}`}
+                      target="_blank"
+                      rel="noreferrer"
                       className="mt-auto inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-white font-bold uppercase tracking-wide text-xs transition-all hover:scale-[1.02]"
                       style={{ background: "var(--gradient-orange)" }}
                     >
