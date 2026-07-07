@@ -4,6 +4,13 @@ import carHatch from "@/assets/car-hatch.jpg";
 import carLuxury from "@/assets/car-luxury.jpg";
 import carInnova from "@/assets/car-innova.jpg";
 import carKia from "@/assets/car-kia.jpg";
+import venue1 from "@/assets/car-venue-1.jpg";
+import venue2 from "@/assets/car-venue-2.jpg";
+import venue3 from "@/assets/car-venue-3.jpg";
+import venue4 from "@/assets/car-venue-4.jpg";
+import venue5 from "@/assets/car-venue-5.jpg";
+import venue6 from "@/assets/car-venue-6.jpg";
+
 
 export type Car = {
   slug: string;
