@@ -95,9 +95,8 @@ export default function CarDetails() {
                 >
                   Certified
                 </div>
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur text-white text-xs font-semibold">
-                  {car.cat}
-                </div>
+
+
               </div>
 
               {gallery.length > 1 && (
