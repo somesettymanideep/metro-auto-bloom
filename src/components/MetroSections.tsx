@@ -1155,7 +1155,13 @@ export function CTASection() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+          >
             <a
               href="#inventory"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold uppercase text-sm tracking-wider text-black transition-all duration-300 hover:scale-105"
@@ -1180,15 +1186,22 @@ export function CTASection() {
             >
               Book Test Drive
             </a>
-          </div>
+          </motion.div>
 
           {/* Trust Elements */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8">
-            {trustItems.map((item) => (
-              <div key={item} className="flex items-center gap-2 text-white/80 text-sm font-medium">
+            {trustItems.map((item, i) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.35 + i * 0.08 }}
+                className="flex items-center gap-2 text-white/80 text-sm font-medium"
+              >
                 <CheckCircle2 className="size-4 text-[var(--brand-orange)] shrink-0" />
                 {item}
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
