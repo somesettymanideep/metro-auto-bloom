@@ -109,12 +109,12 @@ export default function CarDetails() {
               </div>
 
               {gallery.length > 1 && (
-                <div className="grid grid-cols-4 gap-3 mt-4">
+                <div className="flex gap-3 mt-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
                   {gallery.map((g, i) => (
                     <button
                       key={i}
                       onClick={() => setActive(i)}
-                      className={`aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all ${
+                      className={`shrink-0 snap-start w-24 sm:w-28 aspect-[4/3] rounded-xl overflow-hidden border-2 transition-all ${
                         active === i ? "border-[var(--brand-orange)]" : "border-transparent opacity-70 hover:opacity-100"
                       }`}
                     >
