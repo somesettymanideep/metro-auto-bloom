@@ -31,7 +31,9 @@ export default function Home() {
       <MetroHero />
       <TrustBar />
       <AboutSection />
+      <FounderSection />
       <ServicesSection />
+
       <InventorySection />
 
       <WhySection />
