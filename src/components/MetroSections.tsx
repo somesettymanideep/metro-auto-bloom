@@ -158,8 +158,8 @@ export function AboutSection() {
               <Award className="size-6 text-white" />
             </div>
             <div>
-              <div className="font-extrabold text-2xl">10+</div>
-              <div className="text-xs uppercase tracking-wide text-black/60">Years of Trust</div>
+              <div className="font-extrabold text-2xl">14+</div>
+              <div className="text-xs uppercase tracking-wide text-black/60">Years of Experience</div>
             </div>
           </div>
         </motion.div>
