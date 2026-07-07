@@ -371,8 +371,8 @@ export function ServicesSection() {
             <span className="size-2 rounded-full bg-[var(--brand-orange)] animate-pulse" />
             <span className="text-xs uppercase tracking-[0.2em] font-bold text-[var(--brand-orange)]">Our Services</span>
           </div>
-          <h2 className="text-4xl lg:text-6xl uppercase text-neutral-900 leading-[0.95]">
-            Complete Car Solutions <span className="text-gradient-orange">Under One Roof</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl uppercase text-neutral-900 leading-tight max-w-3xl mx-auto">
+            Complete Car Solutions <br className="hidden sm:block" /><span className="text-gradient-orange">Under One Roof</span>
           </h2>
           <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
             Whether you're buying, selling, exchanging, or financing a vehicle, Metro Cars provides a seamless experience from start to finish.
