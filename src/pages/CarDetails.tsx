@@ -30,6 +30,15 @@ export default function CarDetails() {
     window.scrollTo(0, 0);
   }, [car]);
 
+  useEffect(() => {
+    if (gallery.length <= 1) return;
+    const id = setInterval(() => {
+      setActive((prev) => (prev + 1) % gallery.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [gallery.length]);
+
+
   if (!car) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-6">
