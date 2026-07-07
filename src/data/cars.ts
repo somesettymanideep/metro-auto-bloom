@@ -53,7 +53,9 @@ export const cars: Car[] = [
     brand: "Hyundai",
     model: "Venue",
     variant: "S(O) Petrol MT",
+    color: "White",
     bodyType: "Compact SUV",
+
     description:
       "Well-maintained Hyundai Venue S(O) petrol variant. Spacious compact SUV with modern features, comfortable interiors and excellent fuel efficiency. Perfect for city driving and highway cruising.",
     gallery: [venue1, venue2, venue3, venue4, venue5, venue6],
