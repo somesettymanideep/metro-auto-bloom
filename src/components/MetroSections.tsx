@@ -83,9 +83,9 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
 /* ---------- Trust Bar ---------- */
 const stats = [
-  { icon: Car, value: 500, suffix: "+", label: "Cars Sold" },
+  { icon: Car, value: 10000, suffix: "+", label: "Cars Sold" },
   { icon: ShieldCheck, value: 100, suffix: "%", label: "Verified Vehicles" },
-  { icon: Users, value: 1000, suffix: "+", label: "Happy Customers" },
+  { icon: Users, value: 25000, suffix: "+", label: "Verified Customers" },
   { icon: Star, value: 5, suffix: "★", label: "Customer Satisfaction" },
 ];
 
