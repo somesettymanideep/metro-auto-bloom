@@ -4,6 +4,7 @@ import { MetroHero } from "@/components/MetroHero";
 import {
   TrustBar,
   AboutSection,
+  ServicesSection,
   InventorySection,
   WhySection,
   TestimonialsSection,
@@ -15,6 +16,7 @@ import {
   MetroFooter,
   StickyContact,
 } from "@/components/MetroSections";
+
 
 export default function Home() {
   useEffect(() => {
