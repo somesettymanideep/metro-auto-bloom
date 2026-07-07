@@ -245,7 +245,7 @@ const services = [
 
 export function FounderSection() {
   const highlights = [
-    "15+ Years Experience",
+    "14+ Years Experience",
     "500+ Happy Customers",
     "1000+ Cars Sold",
     "Trusted Used Car Dealer",
@@ -277,31 +277,18 @@ export function FounderSection() {
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 text-white">
               <div
-                className="italic text-2xl font-semibold tracking-wide"
+                className="italic text-3xl font-semibold tracking-wide"
                 style={{ fontFamily: "'Brush Script MT', cursive" }}
               >
-                — Metro Cars
+                Mahesh Gudipati
               </div>
               <div className="mt-1 text-xs uppercase tracking-[0.25em] text-[var(--brand-orange)] font-bold">
-                Founder & CEO
+                Founder & CEO • Metro Cars
               </div>
-            </div>
-          </div>
-
-          <div className="absolute -bottom-6 -right-4 lg:-right-8 glass-light rounded-2xl px-5 py-4 shadow-xl flex items-center gap-3 bg-white">
-            <div
-              className="size-12 rounded-full flex items-center justify-center"
-              style={{ background: "var(--gradient-orange)" }}
-            >
-              <Award className="size-6 text-white" />
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-wider text-black/60 font-semibold">Experience</div>
-              <div className="text-lg font-extrabold text-black leading-tight">15+ Years</div>
-              <div className="text-[11px] text-black/60">in Automotive Industry</div>
             </div>
           </div>
         </motion.div>
+
 
         {/* Right 60% */}
         <motion.div
