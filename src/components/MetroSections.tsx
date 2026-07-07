@@ -450,7 +450,13 @@ export function InventorySection() {
   return (
     <section id="inventory" className="py-24 lg:py-32 bg-[#fafafa]">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
           <div className="text-[var(--brand-orange)] font-bold uppercase tracking-[0.25em] text-sm mb-3">
             Featured Inventory
           </div>
@@ -460,9 +466,15 @@ export function InventorySection() {
           <p className="mt-4 text-black/60 text-lg">
             Choose from a wide range of quality pre-owned vehicles.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="flex flex-wrap justify-center gap-2 mb-12"
+        >
           {tabs.map((t) => (
             <button
               key={t}
@@ -477,7 +489,7 @@ export function InventorySection() {
               {t}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((c, i) => (
