@@ -79,13 +79,6 @@ export default function CarDetails() {
 
       <main className="pt-10 lg:pt-14 pb-24">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center gap-2 text-sm text-black/60 mb-6">
-            <Link to="/" className="hover:text-[var(--brand-orange)]">Home</Link>
-            <span>/</span>
-            <Link to="/#inventory" className="hover:text-[var(--brand-orange)]">Inventory</Link>
-            <span>/</span>
-            <span className="text-black font-semibold">{car.name}</span>
-          </div>
 
           <div className="grid lg:grid-cols-5 gap-10">
             {/* Gallery */}
