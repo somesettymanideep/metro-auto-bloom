@@ -10,6 +10,11 @@ import venue3 from "@/assets/car-venue-3.jpg";
 import venue4 from "@/assets/car-venue-4.jpg";
 import venue5 from "@/assets/car-venue-5.jpg";
 import venue6 from "@/assets/car-venue-6.jpg";
+import wagonr1 from "@/assets/car-wagonr-1.jpg";
+import wagonr2 from "@/assets/car-wagonr-2.jpg";
+import wagonr3 from "@/assets/car-wagonr-3.jpg";
+import wagonr4 from "@/assets/car-wagonr-4.jpg";
+
 
 
 export type Car = {
