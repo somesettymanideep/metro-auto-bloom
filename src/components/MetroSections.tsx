@@ -209,6 +209,126 @@ export function AboutSection() {
 import { cars } from "@/data/cars";
 const tabs = ["All", "Sedan", "SUV", "Hatchback", "Luxury", "Budget"];
 
+/* ---------- Services ---------- */
+const services = [
+  {
+    icon: Car,
+    emoji: "🚗",
+    title: "Buy Used Cars",
+    features: ["Certified pre-owned vehicles", "Quality inspection", "Warranty support"],
+    cta: { label: "Explore Inventory", href: "#inventory" },
+  },
+  {
+    icon: Tag,
+    emoji: "💰",
+    title: "Sell Your Car",
+    features: ["Instant valuation", "Best market price", "Same-day payment"],
+    cta: { label: "Sell My Car", href: "#contact" },
+  },
+  {
+    icon: KeyRound,
+    emoji: "🔄",
+    title: "Exchange Your Car",
+    features: ["Upgrade to your dream car", "Fair exchange valuation", "Hassle-free documentation"],
+    cta: { label: "Get Exchange Quote", href: "#contact" },
+  },
+  {
+    icon: Banknote,
+    emoji: "🏦",
+    title: "Car Finance",
+    features: ["Easy EMI options", "Fast loan approvals", "Multiple finance partners"],
+    cta: { label: "Check Eligibility", href: "#contact" },
+  },
+];
+
+export function ServicesSection() {
+  return (
+    <section id="services" className="relative py-24 lg:py-32 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden">
+      <div className="absolute -top-40 -right-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+
+      <div className="relative container mx-auto px-4 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--brand-orange)]/10 border border-[var(--brand-orange)]/20 mb-5">
+            <span className="size-2 rounded-full bg-[var(--brand-orange)] animate-pulse" />
+            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[var(--brand-orange)]">Our Services</span>
+          </div>
+          <h2 className="text-4xl lg:text-6xl uppercase text-neutral-900 leading-[0.95]">
+            Complete Car Solutions <span className="text-gradient-orange">Under One Roof</span>
+          </h2>
+          <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
+            Whether you're buying, selling, exchanging, or financing a vehicle, Metro Cars provides a seamless experience from start to finish.
+          </p>
+        </motion.div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                className="group relative rounded-3xl p-[1.5px] bg-gradient-to-br from-neutral-200 to-neutral-200 hover:from-[var(--brand-orange)] hover:to-[#ff9a4d] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(255,90,0,0.4)]"
+              >
+                <div className="relative h-full rounded-[calc(1.5rem-1.5px)] bg-white/80 backdrop-blur-xl p-7 flex flex-col overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-neutral-50 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  <div className="relative">
+                    <div className="flex items-center justify-between mb-6">
+                      <div
+                        className="size-14 rounded-2xl flex items-center justify-center text-white shadow-[0_10px_30px_-10px_rgba(255,90,0,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+                        style={{ background: "var(--gradient-orange)" }}
+                      >
+                        <Icon className="size-6" />
+                      </div>
+                      <span className="text-3xl transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-12">
+                        {s.emoji}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl uppercase text-neutral-900 mb-4 leading-tight">
+                      {s.title}
+                    </h3>
+
+                    <ul className="space-y-2.5 mb-7">
+                      {s.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-neutral-700">
+                          <CheckCircle2 className="size-4 text-[var(--brand-orange)] shrink-0 mt-0.5" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={s.cta.href}
+                      className="mt-auto inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-white font-bold uppercase tracking-wide text-xs transition-all hover:scale-[1.02]"
+                      style={{ background: "var(--gradient-orange)" }}
+                    >
+                      {s.cta.label}
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export function InventorySection() {
   const [tab, setTab] = useState("All");
   const filtered = tab === "All" ? cars : tab === "Budget" ? cars.filter(c => parseFloat(c.price.replace(/[^\d.]/g, "")) < 10) : cars.filter(c => c.cat === tab);
