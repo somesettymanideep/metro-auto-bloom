@@ -29,7 +29,9 @@ export default function Home() {
       <MetroHero />
       <TrustBar />
       <AboutSection />
+      <ServicesSection />
       <InventorySection />
+
       <WhySection />
       <TestimonialsSection />
       <ProcessSection />
