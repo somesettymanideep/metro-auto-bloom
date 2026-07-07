@@ -243,6 +243,129 @@ const services = [
   },
 ];
 
+export function FounderSection() {
+  const highlights = [
+    "15+ Years Experience",
+    "500+ Happy Customers",
+    "1000+ Cars Sold",
+    "Trusted Used Car Dealer",
+  ];
+  return (
+    <section id="founder" className="relative py-24 lg:py-32 bg-neutral-50 overflow-hidden">
+      <div className="absolute -top-32 -left-32 size-[420px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+      <div className="absolute -bottom-32 -right-32 size-[420px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+
+      <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-5 gap-12 lg:gap-16 items-center relative">
+        {/* Left 40% */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="lg:col-span-2 relative"
+        >
+          <div className="absolute -inset-4 bg-[var(--brand-orange)]/10 rounded-3xl rotate-2" />
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] bg-neutral-900">
+            <img
+              src={founderImg}
+              alt="Metro Cars Founder"
+              loading="lazy"
+              width={912}
+              height={1104}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute bottom-5 left-5 right-5 text-white">
+              <div
+                className="italic text-2xl font-semibold tracking-wide"
+                style={{ fontFamily: "'Brush Script MT', cursive" }}
+              >
+                — Metro Cars
+              </div>
+              <div className="mt-1 text-xs uppercase tracking-[0.25em] text-[var(--brand-orange)] font-bold">
+                Founder & CEO
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute -bottom-6 -right-4 lg:-right-8 glass-light rounded-2xl px-5 py-4 shadow-xl flex items-center gap-3 bg-white">
+            <div
+              className="size-12 rounded-full flex items-center justify-center"
+              style={{ background: "var(--gradient-orange)" }}
+            >
+              <Award className="size-6 text-white" />
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-black/60 font-semibold">Experience</div>
+              <div className="text-lg font-extrabold text-black leading-tight">15+ Years</div>
+              <div className="text-[11px] text-black/60">in Automotive Industry</div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right 60% */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="lg:col-span-3"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--brand-orange)]/10 border border-[var(--brand-orange)]/20 mb-5">
+            <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[var(--brand-orange)]">
+              Meet The Founder
+            </span>
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-extrabold uppercase leading-[0.95] tracking-tight">
+            Meet Our <span className="text-[var(--brand-orange)]">Founder</span>
+          </h2>
+          <p className="mt-4 text-lg lg:text-xl font-semibold text-black/70">
+            Driven by Trust. Built on Customer Satisfaction.
+          </p>
+
+          <div className="mt-6 space-y-4 text-black/70 leading-relaxed">
+            <p>
+              Metro Cars was founded with a simple vision—to make buying and selling pre-owned cars
+              transparent, reliable, and stress-free. Every vehicle is carefully inspected, every
+              customer is treated with honesty, and every deal is handled with complete
+              professionalism.
+            </p>
+            <p>
+              With years of experience in the automobile industry, our founder has helped thousands
+              of customers find the right vehicle at the right price while building lasting
+              relationships based on trust.
+            </p>
+          </div>
+
+          <div className="mt-8 grid sm:grid-cols-2 gap-3">
+            {highlights.map((h) => (
+              <div
+                key={h}
+                className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-black/5 hover:border-[var(--brand-orange)]/40 transition-colors"
+              >
+                <CheckCircle2 className="size-5 text-[var(--brand-orange)] shrink-0" />
+                <span className="font-semibold text-black text-sm">{h}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold uppercase text-sm tracking-wide hover:opacity-90 transition-opacity"
+              style={{ background: "var(--gradient-orange)" }}
+            >
+              Meet Our Team <ArrowRight className="size-4" />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+
+
 export function ServicesSection() {
   return (
     <section id="services" className="relative py-24 lg:py-32 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden">
