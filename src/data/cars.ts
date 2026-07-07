@@ -65,7 +65,7 @@ export const cars: Car[] = [
 
     description:
       "Well-maintained Hyundai Venue S(O) petrol variant. Spacious compact SUV with modern features, comfortable interiors and excellent fuel efficiency. Perfect for city driving and highway cruising.",
-    gallery: [venue1, venue2, venue3, venue4, venue5, venue6],
+    gallery: [venue1, venue2, venue3, venue4, venue5, venue6, venue7],
   },
   {
     slug: "maruti-wagonr-2024",
