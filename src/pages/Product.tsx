@@ -99,14 +99,19 @@ export default function Product() {
     window.scrollTo(0, 0);
   }, []);
 
+  // Reduced motion: honor system pref + expose a user toggle
+  const systemReduced = useReducedMotion();
+  const [userReduced, setUserReduced] = useState(false);
+  const reduced = systemReduced || userReduced;
+
   // Parallax on the car image
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start end", "end start"],
   });
-  const carY = useTransform(scrollYProgress, [0, 1], [40, -80]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const carY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [40, -80]);
+  const glowY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [0, -60]);
 
   // 3D tilt on hover
   const rotateX = useMotionValue(0);
@@ -115,6 +120,7 @@ export default function Product() {
   const springRY = useSpring(rotateY, { stiffness: 120, damping: 15 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (reduced) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const px = (e.clientX - rect.left) / rect.width;
     const py = (e.clientY - rect.top) / rect.height;
@@ -125,6 +131,16 @@ export default function Product() {
     rotateX.set(0);
     rotateY.set(0);
   };
+
+  // Active hotspot (kept open on focus/click for keyboard users)
+  const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveHotspot(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white overflow-hidden">
