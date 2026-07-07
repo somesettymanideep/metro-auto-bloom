@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CarDetails from "./pages/CarDetails";
+import Product from "./pages/Product";
 import NotFound from "./pages/NotFound";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import "./styles.css";
