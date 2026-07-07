@@ -20,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
         <Route path="/car/:slug" element={<CarDetails />} />
+        <Route path="/product" element={<Product />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
