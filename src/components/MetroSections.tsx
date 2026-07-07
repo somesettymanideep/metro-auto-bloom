@@ -246,8 +246,8 @@ const services = [
 export function FounderSection() {
   const highlights = [
     "14+ Years Experience",
-    "500+ Happy Customers",
-    "1000+ Cars Sold",
+    "10000+ Cars Sold",
+    "25000+ Verified Customers",
     "Trusted Used Car Dealer",
   ];
   return (
