@@ -14,6 +14,8 @@ import wagonr1 from "@/assets/car-wagonr-1.jpg";
 import wagonr2 from "@/assets/car-wagonr-2.jpg";
 import wagonr3 from "@/assets/car-wagonr-3.jpg";
 import wagonr4 from "@/assets/car-wagonr-4.jpg";
+import wagonr5 from "@/assets/car-wagonr-5.jpg";
+import venue7 from "@/assets/car-venue-7.jpg";
 
 
 
