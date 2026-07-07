@@ -4,6 +4,7 @@ import { MetroHero } from "@/components/MetroHero";
 import {
   TrustBar,
   AboutSection,
+  FounderSection,
   ServicesSection,
   InventorySection,
   WhySection,
@@ -18,6 +19,7 @@ import {
 } from "@/components/MetroSections";
 
 
+
 export default function Home() {
   useEffect(() => {
     document.title = "Metro Cars Vijayawada | Buy Pre Owned Cars in Vijayawada";
@@ -29,7 +31,9 @@ export default function Home() {
       <MetroHero />
       <TrustBar />
       <AboutSection />
+      <FounderSection />
       <ServicesSection />
+
       <InventorySection />
 
       <WhySection />
