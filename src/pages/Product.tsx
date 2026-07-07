@@ -20,6 +20,7 @@ import {
   FileCheck2,
   Handshake,
   ChevronRight,
+  Accessibility,
 } from "lucide-react";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
