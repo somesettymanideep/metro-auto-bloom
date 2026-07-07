@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useMotionValue, useSpring, useTransform, useScroll, useInView, animate } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform, useScroll, useInView, animate, useReducedMotion } from "framer-motion";
 import {
   Star,
   Calendar,
