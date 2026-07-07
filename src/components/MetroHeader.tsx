@@ -79,8 +79,8 @@ export function MetroHeader() {
     >
       <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between gap-4">
         <a
-          href="#home"
-          onClick={(e) => handleNavClick(e, "home")}
+          href="/"
+          onClick={handleLogoClick}
           className="flex items-center gap-2 shrink-0 cursor-pointer"
         >
           <img
