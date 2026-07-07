@@ -17,6 +17,7 @@ import {
 import { getCarBySlug } from "@/data/cars";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
+import bannerImg from "@/assets/car-details-banner.jpg";
 
 export default function CarDetails() {
   const { slug = "" } = useParams();
@@ -48,9 +49,36 @@ export default function CarDetails() {
     <div className="min-h-screen bg-[#fafafa]">
       <MetroHeader />
 
-      <main className="pt-28 pb-24">
+      {/* Sub-page banner */}
+      <section className="relative pt-28 lg:pt-32 h-[280px] lg:h-[360px] overflow-hidden">
+        <img
+          src={bannerImg}
+          alt="Metro Cars showroom banner"
+          width={1920}
+          height={720}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+        <div className="absolute -bottom-24 -right-24 size-[420px] rounded-full bg-[var(--brand-orange)]/25 blur-3xl" />
+        <div className="relative container mx-auto px-4 lg:px-8 h-full flex flex-col justify-end pb-8 lg:pb-12">
+          <div className="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-3">
+            <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-white">Certified Pre-Owned</span>
+          </div>
+          <h1 className="text-3xl lg:text-5xl font-extrabold uppercase text-white leading-[0.95]">
+            {car.name}
+          </h1>
+          <div className="mt-3 flex flex-wrap items-center gap-3 text-white/80 text-sm">
+            <Link to="/" className="hover:text-[var(--brand-orange)]">Home</Link>
+            <span className="text-white/40">/</span>
+            <Link to="/#inventory" className="hover:text-[var(--brand-orange)]">Inventory</Link>
+            <span className="text-white/40">/</span>
+            <span className="text-[var(--brand-orange)] font-semibold">{car.name}</span>
+          </div>
+        </div>
+      </section>
+
+      <main className="pt-10 lg:pt-14 pb-24">
         <div className="container mx-auto px-4 lg:px-8">
-          {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-black/60 mb-6">
             <Link to="/" className="hover:text-[var(--brand-orange)]">Home</Link>
             <span>/</span>
