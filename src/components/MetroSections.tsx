@@ -450,7 +450,13 @@ export function InventorySection() {
   return (
     <section id="inventory" className="py-24 lg:py-32 bg-[#fafafa]">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
           <div className="text-[var(--brand-orange)] font-bold uppercase tracking-[0.25em] text-sm mb-3">
             Featured Inventory
           </div>
@@ -460,9 +466,15 @@ export function InventorySection() {
           <p className="mt-4 text-black/60 text-lg">
             Choose from a wide range of quality pre-owned vehicles.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="flex flex-wrap justify-center gap-2 mb-12"
+        >
           {tabs.map((t) => (
             <button
               key={t}
@@ -477,7 +489,7 @@ export function InventorySection() {
               {t}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filtered.map((c, i) => (
@@ -1047,7 +1059,14 @@ export function FAQSection() {
             transition={{ duration: 0.6, delay: 0.15 }}
           >
             {faqs.map((f, i) => (
-              <div key={i} className="rounded-2xl bg-white border border-black/5 overflow-hidden shadow-sm">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
+                className="rounded-2xl bg-white border border-black/5 overflow-hidden shadow-sm"
+              >
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
@@ -1063,7 +1082,7 @@ export function FAQSection() {
                 >
                   <div className="px-6 pb-5 text-black/70 leading-relaxed">{f.a}</div>
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -1136,7 +1155,13 @@ export function CTASection() {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+          >
             <a
               href="#inventory"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold uppercase text-sm tracking-wider text-black transition-all duration-300 hover:scale-105"
@@ -1161,15 +1186,22 @@ export function CTASection() {
             >
               Book Test Drive
             </a>
-          </div>
+          </motion.div>
 
           {/* Trust Elements */}
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-8">
-            {trustItems.map((item) => (
-              <div key={item} className="flex items-center gap-2 text-white/80 text-sm font-medium">
+            {trustItems.map((item, i) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.35 + i * 0.08 }}
+                className="flex items-center gap-2 text-white/80 text-sm font-medium"
+              >
                 <CheckCircle2 className="size-4 text-[var(--brand-orange)] shrink-0" />
                 {item}
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
