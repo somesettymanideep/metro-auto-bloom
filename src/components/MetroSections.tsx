@@ -1403,6 +1403,8 @@ export function MetroFooter() {
               <a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Social link"
                 className="size-10 rounded-full bg-white/5 hover:bg-[var(--brand-orange)] flex items-center justify-center transition-colors"
               >
