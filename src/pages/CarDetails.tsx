@@ -229,12 +229,12 @@ export default function CarDetails() {
                     </svg>
                     WhatsApp Enquiry
                   </a>
-                  <Link
-                    to="/#enquiry"
+                  <a
+                    href="tel:+919999999999"
                     className="inline-flex items-center justify-center gap-2 py-3 rounded-full bg-black text-white font-bold uppercase text-sm tracking-wide hover:bg-[var(--brand-orange)] transition-colors"
                   >
                     Schedule Test Drive
-                  </Link>
+                  </a>
                   <button
                     onClick={() => {
                       if (navigator.share) {
