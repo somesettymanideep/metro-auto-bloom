@@ -209,7 +209,7 @@ export function AboutSection() {
 
 /* ---------- Inventory ---------- */
 import { cars } from "@/data/cars";
-const tabs = ["All", "Sedan", "SUV", "Hatchback", "Luxury", "Budget"];
+const tabs = ["All", "Venue", "WagonR"];
 
 /* ---------- Services ---------- */
 const services = [
