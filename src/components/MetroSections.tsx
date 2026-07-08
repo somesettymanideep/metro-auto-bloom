@@ -1388,9 +1388,9 @@ export function MetroFooter() {
           </div>
           <div className="flex gap-2">
             {[
-              { Icon: Facebook, href: "#" },
-              { Icon: Instagram, href: "#" },
-              { Icon: Youtube, href: "#" },
+              { Icon: Facebook, href: "https://facebook.com/profile.php?id=100063958086908" },
+              { Icon: Instagram, href: "https://instagram.com/metro_cars_vijayawada" },
+              { Icon: Youtube, href: "https://www.youtube.com/@METROCARSUSEDCARS" },
               {
                 Icon: () => (
                   <svg viewBox="0 0 24 24" fill="currentColor" className="size-4">
@@ -1403,6 +1403,8 @@ export function MetroFooter() {
               <a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label="Social link"
                 className="size-10 rounded-full bg-white/5 hover:bg-[var(--brand-orange)] flex items-center justify-center transition-colors"
               >
