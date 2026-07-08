@@ -209,7 +209,7 @@ export function AboutSection() {
 
 /* ---------- Inventory ---------- */
 import { cars } from "@/data/cars";
-const tabs = ["All", "Sedan", "SUV", "Hatchback", "Luxury", "Budget"];
+const tabs = ["All", "Venue", "WagonR"];
 
 /* ---------- Services ---------- */
 const services = [
@@ -445,7 +445,7 @@ export function ServicesSection() {
 
 export function InventorySection() {
   const [tab, setTab] = useState("All");
-  const filtered = tab === "All" ? cars : tab === "Budget" ? cars.filter(c => parseFloat(c.price.replace(/[^\d.]/g, "")) < 10) : cars.filter(c => c.cat === tab);
+  const filtered = tab === "All" ? cars : cars.filter(c => c.name.toLowerCase().includes(tab.toLowerCase()));
 
   return (
     <section id="inventory" className="py-24 lg:py-32 bg-[#fafafa]">
