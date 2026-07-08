@@ -37,8 +37,8 @@ export default function Home() {
 
       <WhySection />
       <FounderSection />
-      <TestimonialsSection />
       <ProcessSection />
+      <TestimonialsSection />
       <EnquirySection />
       <FAQSection />
       <CTASection />
