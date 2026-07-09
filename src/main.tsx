@@ -9,12 +9,14 @@ import CarDetails from "./pages/CarDetails";
 import Product from "./pages/Product";
 import NotFound from "./pages/NotFound";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HashRouter>
       <SmoothScroll />
+      <ScrollReveal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
