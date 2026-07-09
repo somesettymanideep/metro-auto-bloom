@@ -897,7 +897,7 @@ export function ProcessSection() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
