@@ -641,6 +641,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
+      data-no-reveal
       className="py-16 sm:py-20 lg:py-32 bg-white relative overflow-hidden"
     >
       {/* subtle dot pattern bg */}
