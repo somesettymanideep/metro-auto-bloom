@@ -644,26 +644,8 @@ export function TestimonialsSection() {
       data-no-reveal
       className="py-16 sm:py-20 lg:py-32 bg-white relative overflow-hidden"
     >
-      {/* subtle dot pattern bg */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.5) 1px, transparent 0)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute -top-40 -right-40 size-[500px] rounded-full blur-3xl opacity-15"
-        style={{ background: "var(--brand-orange)" }}
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-40 -left-40 size-[500px] rounded-full blur-3xl opacity-10"
-        style={{ background: "var(--brand-orange)" }}
-      />
+
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
