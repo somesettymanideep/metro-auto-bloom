@@ -34,9 +34,6 @@ import {
   KeyRound,
   Volume2,
   VolumeX,
-  DollarSign,
-  RefreshCw,
-  Landmark,
 } from "lucide-react";
 import dealership from "@/assets/dealership.jpg";
 import founderImg from "@/assets/founder.jpg";
@@ -218,46 +215,33 @@ const tabs = ["All", "Venue", "WagonR"];
 const services = [
   {
     icon: Car,
-    image: carLuxury,
-    kicker: "01 — Ownership",
+    emoji: "🚗",
     title: "Buy Used Cars",
-    subtitle: "Certified pre-owned vehicles",
     features: ["Certified pre-owned vehicles", "Quality inspection", "Warranty support"],
     cta: { label: "Explore Inventory", href: "#inventory" },
-    reveal: "fade-up" as const,
   },
   {
-    icon: DollarSign,
-    image: carSedan,
-    kicker: "02 — Liquidity",
+    icon: Tag,
+    emoji: "💰",
     title: "Sell Your Car",
-    subtitle: "Instant valuation, best price",
     features: ["Instant valuation", "Best market price", "Same-day payment"],
     cta: { label: "Sell My Car", href: "#contact" },
-    reveal: "slide-right" as const,
   },
   {
-    icon: RefreshCw,
-    image: carSuv,
-    kicker: "03 — Upgrade",
+    icon: KeyRound,
+    emoji: "🔄",
     title: "Exchange Your Car",
-    subtitle: "Upgrade to your dream car",
     features: ["Upgrade to your dream car", "Fair exchange valuation", "Hassle-free documentation"],
     cta: { label: "Get Exchange Quote", href: "#contact" },
-    reveal: "slide-left" as const,
   },
   {
-    icon: Landmark,
-    image: carKia,
-    kicker: "04 — Finance",
+    icon: Banknote,
+    emoji: "🏦",
     title: "Car Finance",
-    subtitle: "Easy EMI, fast approvals",
     features: ["Easy EMI options", "Fast loan approvals", "Multiple finance partners"],
     cta: { label: "Check Eligibility", href: "#contact" },
-    reveal: "zoom-in" as const,
   },
 ];
-
 
 export function FounderSection() {
   const highlights = [
@@ -369,155 +353,11 @@ export function FounderSection() {
 
 
 
-function ServiceCard({ s, index }: { s: (typeof services)[number]; index: number }) {
-  const Icon = s.icon;
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const initial =
-    s.reveal === "fade-up"
-      ? { opacity: 0, y: 100 }
-      : s.reveal === "slide-right"
-      ? { opacity: 0, x: 120 }
-      : s.reveal === "slide-left"
-      ? { opacity: 0, x: -120 }
-      : { opacity: 0, scale: 0.85 };
-  const animate =
-    s.reveal === "fade-up"
-      ? { opacity: 1, y: 0 }
-      : s.reveal === "slide-right" || s.reveal === "slide-left"
-      ? { opacity: 1, x: 0 }
-      : { opacity: 1, scale: 1 };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: py * -4, y: px * 6 });
-  };
-  const handleMouseLeave = () => setTilt({ x: 0, y: 0 });
-
-  return (
-    <motion.div
-      ref={cardRef}
-      initial={initial}
-      whileInView={animate}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-        transformStyle: "preserve-3d",
-      }}
-      className="group relative rounded-[2rem] overflow-hidden bg-white border border-black/10 transition-[transform,box-shadow,border-color] duration-[400ms] ease-out hover:scale-[1.02] hover:border-[var(--brand-orange)] hover:border-2 hover:shadow-[0_30px_80px_rgba(251,89,0,0.25)]"
-    >
-      {/* Top orange gradient hover line */}
-      <span
-        className="absolute top-0 left-0 h-[3px] w-0 group-hover:w-full transition-all duration-700 ease-out z-20"
-        style={{ background: "var(--gradient-orange)" }}
-      />
-
-      <div className="grid md:grid-cols-2 items-stretch">
-        {/* Image */}
-        <div className={`relative overflow-hidden aspect-[4/3] md:aspect-auto md:min-h-[420px] ${index % 2 === 1 ? "md:order-2" : ""}`}>
-          <img
-            src={s.image}
-            alt={s.title}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover transition-all duration-[700ms] ease-out group-hover:scale-110 group-hover:rotate-[1deg] group-hover:brightness-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-          <div className="absolute top-5 left-5 text-white text-[11px] font-bold uppercase tracking-[0.25em]">
-            {s.kicker}
-          </div>
-        </div>
-
-        {/* Content */}
-        <div className="relative p-8 md:p-12 flex flex-col justify-center">
-          <div
-            className="size-16 rounded-2xl border-2 border-black/10 flex items-center justify-center text-black group-hover:border-[var(--brand-orange)] group-hover:text-[var(--brand-orange)] transition-colors duration-500 mb-6"
-          >
-            <Icon className="size-7" strokeWidth={1.6} />
-          </div>
-
-          <h3 className="text-3xl md:text-4xl uppercase text-black leading-[0.95] tracking-tight">
-            {s.title}
-          </h3>
-          <p className="mt-3 text-neutral-600 text-base md:text-lg">
-            {s.subtitle}
-          </p>
-
-          <ul className="mt-6 space-y-3">
-            {s.features.map((f, fi) => (
-              <motion.li
-                key={f}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.25 + fi * 0.12, ease: "easeOut" }}
-                className="flex items-center gap-3 text-[15px] text-neutral-800"
-              >
-                <span className="size-6 rounded-full bg-[var(--brand-orange)]/10 flex items-center justify-center">
-                  <CheckCircle2 className="size-4 text-[var(--brand-orange)]" />
-                </span>
-                <span>{f}</span>
-              </motion.li>
-            ))}
-          </ul>
-
-          <div className="mt-8">
-            <a
-              href={`https://wa.me/919059987777?text=${encodeURIComponent(`Hi Metro Cars, I'm interested in "${s.title}" service. ${s.cta.label}.`)}`}
-              target="_blank"
-              rel="noreferrer"
-              className="group/btn relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full text-white font-bold uppercase tracking-[0.15em] text-xs transition-colors duration-300 bg-[var(--brand-orange)] hover:bg-black"
-            >
-              <span className="relative">
-                {s.cta.label}
-                <span className="absolute left-0 -bottom-1 h-[2px] w-0 group-hover/btn:w-full transition-all duration-500 bg-white group-hover/btn:bg-[var(--brand-orange)]" />
-              </span>
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-2 group-hover/btn:text-[var(--brand-orange)]" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
 export function ServicesSection() {
-  const { scrollYProgress } = useScroll();
-  const bgY1 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const bgY2 = useTransform(scrollYProgress, [0, 1], [0, 80]);
-
   return (
-    <section id="services" className="relative py-24 lg:py-32 overflow-hidden" style={{ backgroundColor: "#FAFAFA" }}>
-      {/* Blurred orange circles */}
-      <motion.div
-        style={{ y: bgY1 }}
-        className="absolute -top-40 -right-40 size-[600px] rounded-full blur-3xl"
-      >
-        <div className="w-full h-full rounded-full" style={{ background: "var(--brand-orange)", opacity: 0.05 }} />
-      </motion.div>
-      <motion.div
-        style={{ y: bgY2 }}
-        className="absolute -bottom-40 -left-40 size-[600px] rounded-full blur-3xl"
-      >
-        <div className="w-full h-full rounded-full" style={{ background: "var(--brand-orange)", opacity: 0.05 }} />
-      </motion.div>
-
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.6) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          opacity: 0.02,
-        }}
-      />
+    <section id="services" className="relative py-24 lg:py-32 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden">
+      <div className="absolute -top-40 -right-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
 
       <div className="relative container mx-auto px-4 lg:px-8">
         <motion.div
@@ -531,41 +371,73 @@ export function ServicesSection() {
             <span className="size-2 rounded-full bg-[var(--brand-orange)] animate-pulse" />
             <span className="text-xs uppercase tracking-[0.2em] font-bold text-[var(--brand-orange)]">Our Services</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl uppercase text-black leading-[0.95] tracking-tight">
-            Complete Car Solutions <br className="hidden sm:block" />
-            <span className="text-gradient-orange">Under One Roof</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl uppercase text-neutral-900 leading-tight max-w-3xl mx-auto">
+            Complete Car Solutions <br className="hidden sm:block" /><span className="text-gradient-orange">Under One Roof</span>
           </h2>
           <p className="mt-6 text-lg text-neutral-600 leading-relaxed">
             Whether you're buying, selling, exchanging, or financing a vehicle, Metro Cars provides a seamless experience from start to finish.
           </p>
-          <div className="mt-8 inline-flex flex-col items-center gap-1 text-neutral-500 text-xs uppercase tracking-[0.3em]">
-            <span>Scroll</span>
-            <motion.span
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              ↓
-            </motion.span>
-          </div>
         </motion.div>
 
-        {/* Desktop / tablet: stacked storytelling cards */}
-        <div className="hidden sm:flex flex-col gap-10 lg:gap-14 max-w-6xl mx-auto">
-          {services.map((s, i) => (
-            <ServiceCard key={s.title} s={s} index={i} />
-          ))}
-        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                className="group relative rounded-3xl p-[1.5px] bg-gradient-to-br from-neutral-200 to-neutral-200 hover:from-[var(--brand-orange)] hover:to-[#ff9a4d] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_-20px_rgba(255,90,0,0.4)]"
+              >
+                <div className="relative h-full rounded-[calc(1.5rem-1.5px)] bg-white/80 backdrop-blur-xl p-7 flex flex-col overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-neutral-50 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        {/* Mobile: swipeable snap scrolling */}
-        <div className="sm:hidden -mx-4 px-4 overflow-x-auto snap-x snap-mandatory flex gap-4 pb-4 scrollbar-none">
-          {services.map((s, i) => (
-            <div key={s.title} className="snap-center shrink-0 w-[85%]">
-              <ServiceCard s={s} index={i} />
-            </div>
-          ))}
+                  <div className="relative">
+                    <div className="flex items-center justify-between mb-6">
+                      <div
+                        className="size-14 rounded-2xl flex items-center justify-center text-white shadow-[0_10px_30px_-10px_rgba(255,90,0,0.6)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+                        style={{ background: "var(--gradient-orange)" }}
+                      >
+                        <Icon className="size-6" />
+                      </div>
+                      <span className="text-3xl transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-12">
+                        {s.emoji}
+                      </span>
+                    </div>
+
+                    <h3 className="text-2xl uppercase text-neutral-900 mb-4 leading-tight">
+                      {s.title}
+                    </h3>
+
+                    <ul className="space-y-2.5 mb-7">
+                      {s.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5 text-sm text-neutral-700">
+                          <CheckCircle2 className="size-4 text-[var(--brand-orange)] shrink-0 mt-0.5" />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <a
+                      href={`https://wa.me/919059987777?text=${encodeURIComponent(`Hi Metro Cars, I'm interested in "${s.title}" service. ${s.cta.label}.`)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-auto inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full text-white font-bold uppercase tracking-wide text-xs transition-all hover:scale-[1.02]"
+                      style={{ background: "var(--gradient-orange)" }}
+                    >
+                      {s.cta.label}
+                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
-
     </section>
   );
 }
