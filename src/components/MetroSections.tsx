@@ -829,7 +829,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-[#0a0a0a] text-white overflow-hidden">
+    <section data-no-reveal className="relative py-24 lg:py-32 bg-[#0a0a0a] text-white overflow-hidden">
       {/* ambient bg */}
       <div className="absolute top-1/4 -left-32 size-[420px] rounded-full bg-[var(--brand-orange)]/15 blur-3xl" />
       <div className="absolute bottom-0 -right-32 size-[420px] rounded-full bg-[var(--brand-orange)]/10 blur-3xl" />
@@ -860,14 +860,7 @@ export function ProcessSection() {
           <div className="hidden lg:block absolute top-[88px] left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-[var(--brand-orange)]/50 to-transparent" />
 
           {steps.map((s, i) => (
-            <motion.div
-              key={s.n}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.5 }}
-              className="group relative"
-            >
+            <div key={s.n} className="group relative">
               <div className="relative h-full rounded-3xl p-7 lg:p-8 bg-white/[0.03] border border-white/10 backdrop-blur-sm hover:border-[var(--brand-orange)]/60 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden">
                 {/* hover glow */}
                 <div className="absolute -top-16 -right-16 size-40 rounded-full bg-[var(--brand-orange)]/30 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -904,7 +897,7 @@ export function ProcessSection() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

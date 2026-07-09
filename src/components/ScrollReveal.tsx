@@ -38,6 +38,8 @@ export function ScrollReveal() {
         // Skip fixed/sticky nav/overlays
         const pos = getComputedStyle(el).position;
         if (pos === "fixed" || pos === "sticky") return;
+        // Skip opt-outs
+        if (el.closest("[data-no-reveal]")) return;
         observed.add(el);
         el.classList.add("reveal-init");
         observer.observe(el);
