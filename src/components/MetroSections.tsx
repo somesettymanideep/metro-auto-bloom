@@ -829,7 +829,7 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="relative py-24 lg:py-32 bg-[#0a0a0a] text-white overflow-hidden">
+    <section data-no-reveal className="relative py-24 lg:py-32 bg-[#0a0a0a] text-white overflow-hidden">
       {/* ambient bg */}
       <div className="absolute top-1/4 -left-32 size-[420px] rounded-full bg-[var(--brand-orange)]/15 blur-3xl" />
       <div className="absolute bottom-0 -right-32 size-[420px] rounded-full bg-[var(--brand-orange)]/10 blur-3xl" />
