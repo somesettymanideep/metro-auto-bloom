@@ -212,3 +212,15 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   .reveal-init { opacity: 1 !important; transform: none !important; transition: none !important; }
 }
+
+/* Hide the browser scrollbar while keeping scroll functionality */
+html {
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE / old Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;                 /* Chrome / Safari */
+}
