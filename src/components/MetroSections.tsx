@@ -444,8 +444,10 @@ export function ServicesSection() {
 
 
 export function InventorySection() {
+  const brands = ["All", ...Array.from(new Set(cars.map(c => c.brand).filter(Boolean) as string[]))];
   const [tab, setTab] = useState("All");
-  const filtered = tab === "All" ? cars : cars.filter(c => c.name.toLowerCase().includes(tab.toLowerCase()));
+  const filtered = tab === "All" ? cars : cars.filter(c => c.brand === tab);
+
 
   return (
     <section id="inventory" className="py-24 lg:py-32 bg-[#fafafa]">
@@ -475,7 +477,7 @@ export function InventorySection() {
           transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          {tabs.map((t) => (
+          {brands.map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
