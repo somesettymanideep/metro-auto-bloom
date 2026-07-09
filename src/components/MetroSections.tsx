@@ -605,7 +605,7 @@ export function InventorySection() {
           transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
           className="flex flex-wrap justify-center gap-2 mb-12"
         >
-          {tabs.map((t) => (
+          {brands.map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
