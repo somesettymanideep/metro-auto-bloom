@@ -218,33 +218,46 @@ const tabs = ["All", "Venue", "WagonR"];
 const services = [
   {
     icon: Car,
-    emoji: "🚗",
+    image: carLuxury,
+    kicker: "01 — Ownership",
     title: "Buy Used Cars",
+    subtitle: "Certified pre-owned vehicles",
     features: ["Certified pre-owned vehicles", "Quality inspection", "Warranty support"],
     cta: { label: "Explore Inventory", href: "#inventory" },
+    reveal: "fade-up" as const,
   },
   {
-    icon: Tag,
-    emoji: "💰",
+    icon: DollarSign,
+    image: carSedan,
+    kicker: "02 — Liquidity",
     title: "Sell Your Car",
+    subtitle: "Instant valuation, best price",
     features: ["Instant valuation", "Best market price", "Same-day payment"],
     cta: { label: "Sell My Car", href: "#contact" },
+    reveal: "slide-right" as const,
   },
   {
-    icon: KeyRound,
-    emoji: "🔄",
+    icon: RefreshCw,
+    image: carSuv,
+    kicker: "03 — Upgrade",
     title: "Exchange Your Car",
+    subtitle: "Upgrade to your dream car",
     features: ["Upgrade to your dream car", "Fair exchange valuation", "Hassle-free documentation"],
     cta: { label: "Get Exchange Quote", href: "#contact" },
+    reveal: "slide-left" as const,
   },
   {
-    icon: Banknote,
-    emoji: "🏦",
+    icon: Landmark,
+    image: carKia,
+    kicker: "04 — Finance",
     title: "Car Finance",
+    subtitle: "Easy EMI, fast approvals",
     features: ["Easy EMI options", "Fast loan approvals", "Multiple finance partners"],
     cta: { label: "Check Eligibility", href: "#contact" },
+    reveal: "zoom-in" as const,
   },
 ];
+
 
 export function FounderSection() {
   const highlights = [
