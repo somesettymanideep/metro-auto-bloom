@@ -355,9 +355,28 @@ export function FounderSection() {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-gradient-to-b from-white via-neutral-50 to-white overflow-hidden">
-      <div className="absolute -top-40 -right-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 size-[500px] rounded-full bg-[var(--brand-orange)]/5 blur-3xl" />
+    <section
+      id="services"
+      className="relative py-24 lg:py-32 overflow-hidden"
+      style={{
+        background:
+          "radial-gradient(1200px 600px at 85% 0%, rgba(255,90,0,0.10), transparent 60%), radial-gradient(900px 500px at 0% 100%, rgba(255,90,0,0.08), transparent 60%), linear-gradient(180deg, #ffffff 0%, #fafafa 50%, #ffffff 100%)",
+      }}
+    >
+      <div
+        className="absolute inset-0 opacity-[0.35] pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black 40%, transparent 80%)",
+        }}
+      />
+      <div className="absolute -top-40 -right-40 size-[520px] rounded-full bg-[var(--brand-orange)]/15 blur-3xl" />
+      <div className="absolute -bottom-40 -left-40 size-[520px] rounded-full bg-[var(--brand-orange)]/15 blur-3xl" />
 
       <div className="relative container mx-auto px-4 lg:px-8">
         <motion.div
