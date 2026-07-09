@@ -34,6 +34,9 @@ import {
   KeyRound,
   Volume2,
   VolumeX,
+  DollarSign,
+  RefreshCw,
+  Landmark,
 } from "lucide-react";
 import dealership from "@/assets/dealership.jpg";
 import founderImg from "@/assets/founder.jpg";
