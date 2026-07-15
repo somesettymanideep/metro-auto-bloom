@@ -59,6 +59,9 @@ export function MetroHero() {
             className="w-full h-full object-cover"
             width={1920}
             height={1080}
+            loading={i === 0 ? "eager" : "lazy"}
+            fetchPriority={i === 0 ? "high" : "auto"}
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
