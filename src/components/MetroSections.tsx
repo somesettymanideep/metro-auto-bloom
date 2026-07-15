@@ -1317,7 +1317,7 @@ export function HappyCustomersSection() {
 /* ---------- Footer ---------- */
 export function MetroFooter() {
   return (
-    <footer className="relative bg-black text-white pt-12 pb-6 border-t border-white/5 overflow-hidden">
+    <footer className="relative bg-black text-white pt-12 pb-0 border-t border-white/5 overflow-hidden">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
