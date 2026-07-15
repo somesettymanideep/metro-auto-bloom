@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   ArrowLeft,
   Calendar,
@@ -26,7 +27,6 @@ export default function CarDetails() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (car) document.title = `${car.name} • Metro Cars`;
     window.scrollTo(0, 0);
   }, [car]);
 

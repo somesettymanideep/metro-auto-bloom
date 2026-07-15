@@ -147,6 +147,15 @@ export default function Product() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white overflow-hidden">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <link rel="canonical" href="https://metro-auto-bloom.lovable.app/product" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:url" content="https://metro-auto-bloom.lovable.app/product" />
+        <meta property="og:type" content="product" />
+      </Helmet>
       <MetroHeader />
 
       {/* Ambient background */}
