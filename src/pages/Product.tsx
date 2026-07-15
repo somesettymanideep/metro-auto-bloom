@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue, useSpring, useTransform, useScroll, useInView, animate, useReducedMotion } from "framer-motion";
 import {
@@ -95,9 +96,11 @@ function Counter({ end, suffix }: { end: number; suffix: string }) {
 
 export default function Product() {
   useEffect(() => {
-    document.title = "Featured Car of the Week • Metro Cars";
     window.scrollTo(0, 0);
   }, []);
+  const seoTitle = "Toyota Fortuner Legender 2024 for Sale | Metro Cars Vijayawada";
+  const seoDesc =
+    "Featured this week at Metro Cars Vijayawada: single-owner Toyota Fortuner Legender 2024 with full service history, company warranty and easy finance.";
 
   // Reduced motion: honor system pref + expose a user toggle
   const systemReduced = useReducedMotion();
