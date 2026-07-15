@@ -1317,7 +1317,7 @@ export function HappyCustomersSection() {
 /* ---------- Footer ---------- */
 export function MetroFooter() {
   return (
-    <footer className="relative bg-black text-white pt-12 pb-0 border-t border-white/5 overflow-hidden">
+    <footer className="relative bg-black text-white pt-12 pb-6 border-t border-white/5 overflow-hidden">
       <div
         className="absolute inset-0 z-0 opacity-30"
         style={{
@@ -1362,7 +1362,7 @@ export function MetroFooter() {
           </div>
         </div>
 
-        <div className="mt-8 pt-5 pb-4 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-8 pt-5 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm">
             All Rights Reserved © 2026 by Metro Cars. Developed By{" "}
             <a
