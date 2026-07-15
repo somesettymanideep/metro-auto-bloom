@@ -89,6 +89,7 @@ export default function PrivacyPolicy() {
       <MetroFooter />
       <StickyContact />
     </main>
+    </>
   );
 }
 
