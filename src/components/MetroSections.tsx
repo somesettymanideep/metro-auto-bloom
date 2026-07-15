@@ -1362,7 +1362,7 @@ export function MetroFooter() {
           </div>
         </div>
 
-        <div className="mt-8 pt-5 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-8 pt-5 pb-4 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm">
             All Rights Reserved © 2026 by Metro Cars. Developed By{" "}
             <a
