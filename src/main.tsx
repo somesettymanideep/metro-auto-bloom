@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/sonner";
 import Home from "./pages/Home";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -14,18 +15,21 @@ import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <HashRouter>
-      <SmoothScroll />
-      <ScrollReveal />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/refund-policy" element={<RefundPolicy />} />
-        <Route path="/car/:slug" element={<CarDetails />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Toaster />
-    </HashRouter>
+    <HelmetProvider>
+      <HashRouter>
+        <SmoothScroll />
+        <ScrollReveal />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/car/:slug" element={<CarDetails />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
+      </HashRouter>
+    </HelmetProvider>
   </React.StrictMode>
 );
+
