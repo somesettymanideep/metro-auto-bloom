@@ -1,15 +1,24 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
 import { ShieldCheck, ArrowLeft } from "lucide-react";
 
 export default function PrivacyPolicy() {
-  useEffect(() => {
-    document.title = "Privacy Policy — Metro Cars Vijayawada";
-  }, []);
-
+  const title = "Privacy Policy | Metro Cars Vijayawada";
+  const description =
+    "Read how Metro Cars Vijayawada collects, uses and protects your personal information across our website, enquiries and in-store visits.";
   return (
+    <>
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href="https://metro-auto-bloom.lovable.app/privacy-policy" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content="https://metro-auto-bloom.lovable.app/privacy-policy" />
+      <meta name="robots" content="index,follow" />
+    </Helmet>
     <main className="min-h-screen bg-white">
       <MetroHeader />
 
@@ -80,6 +89,7 @@ export default function PrivacyPolicy() {
       <MetroFooter />
       <StickyContact />
     </main>
+    </>
   );
 }
 

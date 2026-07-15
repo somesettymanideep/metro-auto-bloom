@@ -1,15 +1,24 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MetroHeader } from "@/components/MetroHeader";
 import { MetroFooter, StickyContact } from "@/components/MetroSections";
 import { Ban, ArrowLeft } from "lucide-react";
 
 export default function RefundPolicy() {
-  useEffect(() => {
-    document.title = "Refund Policy — Metro Cars Vijayawada";
-  }, []);
-
+  const title = "Refund Policy | Metro Cars Vijayawada";
+  const description =
+    "All vehicle sales at Metro Cars Vijayawada are final. Review our no-return, no-refund policy, booking terms and finance cancellation guidelines.";
   return (
+    <>
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href="https://metro-auto-bloom.lovable.app/refund-policy" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content="https://metro-auto-bloom.lovable.app/refund-policy" />
+      <meta name="robots" content="index,follow" />
+    </Helmet>
     <main className="min-h-screen bg-white">
       <MetroHeader />
 
@@ -101,6 +110,7 @@ export default function RefundPolicy() {
       <MetroFooter />
       <StickyContact />
     </main>
+    </>
   );
 }
 

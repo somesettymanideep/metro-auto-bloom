@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   ArrowLeft,
   Calendar,
@@ -26,7 +27,6 @@ export default function CarDetails() {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    if (car) document.title = `${car.name} • Metro Cars`;
     window.scrollTo(0, 0);
   }, [car]);
 
@@ -54,8 +54,32 @@ export default function CarDetails() {
     );
   }
 
+  const seoTitle = `${car.name} (${car.year}) for Sale in Vijayawada | Metro Cars`;
+  const seoDesc = (car.description || `Buy a certified pre-owned ${car.name} at Metro Cars Vijayawada. ${car.year} model, ${car.fuel}, ${car.trans}, ${car.km}. Transparent price ${car.price} with easy finance.`).slice(0, 158);
+  const canonical = `https://metro-auto-bloom.lovable.app/car/${slug}`;
   return (
     <div className="min-h-screen bg-[#fafafa]">
+      <Helmet>
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDesc} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDesc} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="product" />
+        {car.img && <meta property="og:image" content={car.img} />}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Car",
+          name: car.name,
+          brand: car.brand,
+          vehicleModelDate: car.year,
+          fuelType: car.fuel,
+          vehicleTransmission: car.trans,
+          mileageFromOdometer: car.km,
+          offers: { "@type": "Offer", price: car.price, priceCurrency: "INR", availability: "https://schema.org/InStock" },
+        })}</script>
+      </Helmet>
       <MetroHeader />
 
       {/* Sub-page banner */}
