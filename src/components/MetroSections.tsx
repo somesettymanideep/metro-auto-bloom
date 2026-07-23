@@ -148,8 +148,8 @@ export function AboutSection() {
         >
           <div className="absolute -inset-4 bg-[var(--brand-orange)]/10 rounded-3xl -rotate-2" />
           <img
-            src={dealership}
-            alt="Metro Cars dealership showroom"
+            src={showroom}
+            alt="Metro Cars Vijayawada showroom"
             loading="lazy"
             width={1400}
             height={1000}
