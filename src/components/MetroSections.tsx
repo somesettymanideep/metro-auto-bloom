@@ -36,7 +36,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import showroom from "@/assets/showroom.webp";
-import founderImg from "@/assets/founder.jpg";
+import founderImg from "@/assets/founder.webp";
 
 import carSedan from "@/assets/car-sedan.jpg";
 import soldBaleno from "@/assets/happy-customers/sold-baleno.jpg";
