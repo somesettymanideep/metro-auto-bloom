@@ -10,12 +10,12 @@ import venue3 from "@/assets/car-venue-3.jpg";
 import venue4 from "@/assets/car-venue-4.jpg";
 import venue5 from "@/assets/car-venue-5.jpg";
 import venue6 from "@/assets/car-venue-6.jpg";
+import venue7 from "@/assets/car-venue-7.jpg";
 import wagonr1 from "@/assets/car-wagonr-1.jpg";
 import wagonr2 from "@/assets/car-wagonr-2.jpg";
 import wagonr3 from "@/assets/car-wagonr-3.jpg";
 import wagonr4 from "@/assets/car-wagonr-4.jpg";
 import wagonr5 from "@/assets/car-wagonr-5.jpg";
-import venue7 from "@/assets/car-venue-7.jpg";
 import tiagoEv from "@/assets/car-tiago-ev.jpg";
 import xuv500 from "@/assets/car-xuv500.jpg";
 import hondaVx from "@/assets/car-honda-vx.jpg";
@@ -23,9 +23,6 @@ import ecosport from "@/assets/car-ecosport.jpg";
 import bmwX1 from "@/assets/car-bmw-x1.jpg";
 import xl6 from "@/assets/car-xl6.jpg";
 import audiQ3 from "@/assets/car-audi-q3.jpg";
-
-
-
 
 export type Car = {
   slug: string;
@@ -70,7 +67,6 @@ export const cars: Car[] = [
     variant: "S(O) Petrol MT",
     color: "White",
     bodyType: "Compact SUV",
-
     description:
       "Well-maintained Hyundai Venue S(O) petrol variant. Spacious compact SUV with modern features, comfortable interiors and excellent fuel efficiency. Perfect for city driving and highway cruising.",
     gallery: [venue1, venue2, venue3, venue4, venue5, venue6, venue7],
@@ -219,7 +215,24 @@ export const cars: Car[] = [
       "Audi Q3 diesel automatic — refined luxury SUV with quattro capability, premium interiors and effortless power delivery.",
     gallery: [audiQ3],
   },
+  {
+    slug: "toyota-innova-crysta-2-4z-2020",
+    img: carInnova,
+    name: "Toyota Innova Crysta 2.4Z",
+    year: 2020,
+    fuel: "Diesel",
+    trans: "Automatic",
+    km: "1,06,000 km",
+    price: "₹22.00 L",
+    cat: "SUV",
+    brand: "Toyota",
+    model: "Innova Crysta",
+    variant: "2.4Z AT",
+    bodyType: "MPV",
+    description:
+      "Premium Toyota Innova Crysta 2.4Z automatic. The gold standard for MPVs, offering unmatched comfort, reliability, and resale value. Perfect for long family trips and city commutes.",
+    gallery: [carInnova],
+  },
 ];
-
 
 export const getCarBySlug = (slug: string) => cars.find((c) => c.slug === slug);
