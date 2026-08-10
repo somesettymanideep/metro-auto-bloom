@@ -24,6 +24,15 @@ import bmwX1 from "@/assets/car-bmw-x1.jpg";
 import xl6 from "@/assets/car-xl6.jpg";
 import audiQ3 from "@/assets/car-audi-q3.jpg";
 
+// Toyota Innova Crysta Assets
+import innova1Asset from "@/assets/innova-1.webp.asset.json";
+import innova2Asset from "@/assets/innova-2.webp.asset.json";
+import innova3Asset from "@/assets/innova-3.webp.asset.json";
+import innova4Asset from "@/assets/innova-4.webp.asset.json";
+import innova5Asset from "@/assets/innova-5.webp.asset.json";
+import innova6Asset from "@/assets/innova-6.webp.asset.json";
+import innova7Asset from "@/assets/innova-7.webp.asset.json";
+
 export type Car = {
   slug: string;
   img: string;
@@ -217,7 +226,7 @@ export const cars: Car[] = [
   },
   {
     slug: "toyota-innova-crysta-2-4z-2020",
-    img: carInnova,
+    img: innova1Asset.url,
     name: "Toyota Innova Crysta 2.4Z",
     year: 2020,
     fuel: "Diesel",
@@ -229,9 +238,18 @@ export const cars: Car[] = [
     model: "Innova Crysta",
     variant: "2.4Z AT",
     bodyType: "MPV",
+    color: "Black",
     description:
       "Premium Toyota Innova Crysta 2.4Z automatic. The gold standard for MPVs, offering unmatched comfort, reliability, and resale value. Perfect for long family trips and city commutes.",
-    gallery: [carInnova],
+    gallery: [
+      innova1Asset.url,
+      innova2Asset.url,
+      innova3Asset.url,
+      innova4Asset.url,
+      innova5Asset.url,
+      innova6Asset.url,
+      innova7Asset.url,
+    ],
   },
 ];
 
